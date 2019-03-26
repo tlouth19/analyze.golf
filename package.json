@@ -21,6 +21,8 @@
     "evergreen-ui": "^4.14.1",
     "gatsby": "^2.0.55",
     "gatsby-background-image": "^0.2.8-alpha1",
+    "gatsby-image": "^2.0.35",
+    "gatsby-plugin-react-svg": "^2.1.1",
     "gatsby-plugin-sharp": "^2.0.31",
     "gatsby-plugin-typescript": "^2.0.1",
     "gatsby-source-filesystem": "^2.0.28",
