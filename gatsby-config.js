@@ -1,8 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby MobX starter',
+    title: 'Swingz.',
   },
   plugins: [
-    'gatsby-plugin-typescript',
+    `gatsby-plugin-typescript`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: './src/images/',
+      },
+    },
+    `gatsby-transformer-sharp`, 
+    `gatsby-plugin-sharp`
   ],
 };
