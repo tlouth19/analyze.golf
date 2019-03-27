@@ -75,11 +75,14 @@ class Draw extends React.Component<Props> {
   }
   render() {
     return (
+      <>
       <canvas 
         ref={(ref: HTMLCanvasElement) => this.canvasRef = ref}
         onMouseDown={this.onMouseDown}
         onMouseMove={this.onMouseMove}
         onMouseUp={this.onMouseUp}/>
+        <button onClick={() => this.canvas.remove(...this.canvas.getObjects())}>Erase</button>
+      </>
     )
   }
 }
