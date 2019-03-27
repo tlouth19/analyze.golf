@@ -4,11 +4,9 @@ import Layout from '../app-components/layout'
 import Screenshot from '../page-components/index/screenshot'
 import Logo from '../images/logo.svg'
 import SelectFile from '../page-components/index/select_file'
-import Draw from '../page-components/analyze/draw'
 
 export default () => (
   <Layout>
-    <Draw/>
       <Pane 
         is='main'
         display='flex'
