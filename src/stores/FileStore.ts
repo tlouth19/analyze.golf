@@ -5,7 +5,6 @@ export class FileStore {
 
   @action
   set(file: File) {
-    console.log(file)
     this.file = file
   }
 

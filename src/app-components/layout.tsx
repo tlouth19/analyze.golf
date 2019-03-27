@@ -1,18 +1,17 @@
 import * as React from 'react'
 import { Pane } from 'evergreen-ui'
 import Header from './header'
-import DevTools from 'mobx-react-devtools';
 import 'normalize.css'
 
 interface Props {
   children: React.ReactNode
+  hideHeader?: boolean
 }
 
-const Layout: React.FunctionComponent<Props> = ({ children }) => (
+const Layout: React.FunctionComponent<Props> = ({ children, hideHeader }) => (
     <Pane>
-      <Header/>
+      {!hideHeader && <Header/>}
       {children}
-      <DevTools/>
     </Pane>
 )
 

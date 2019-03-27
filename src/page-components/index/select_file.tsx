@@ -37,6 +37,7 @@ class SelectFile extends React.Component<Props> {
       <input  
         style={{ display: 'none', opacity: 0 }}
         ref={(ref: HTMLInputElement) => this.inputRef = ref}
+        accept='video/*'
         onChange={(e: React.SyntheticEvent) => this.setFile(e.target.files)}
         type='file'/>
       </>
