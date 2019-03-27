@@ -18,6 +18,11 @@ class Actions extends React.Component<Props> {
     this.props.fileStore.clear()
     navigate('/')
   }
+  erase() {
+    if (this.props.drawingStore.eraseCanvas) {
+      this.props.drawingStore.eraseCanvas()
+    }
+  }
   render() {
     return (
       <Pane 
@@ -31,6 +36,11 @@ class Actions extends React.Component<Props> {
         <IconButton 
           icon="arrow-left"
           onClick={() => this.back()}/>
+        <Pane flex='auto'/>
+        <IconButton
+          icon='eraser'
+          marginRight='1em'
+          onClick={() => this.erase()}/>
         <Popover
           content={
             <Menu>

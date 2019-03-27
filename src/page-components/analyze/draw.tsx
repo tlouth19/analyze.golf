@@ -30,6 +30,7 @@ class Draw extends React.Component<Props> {
         this.canvas.setHeight(height);
         this.canvas.setWidth(width);
       }
+      this.props.drawingStore.setEraseCanvas(() => this.canvas.remove(...this.canvas.getObjects()))
     }
     window.addEventListener('resize', this.onWindowResize)
     window.addEventListener('orientation', this.onWindowResize)

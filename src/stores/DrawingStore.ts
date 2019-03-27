@@ -5,6 +5,7 @@ export class DrawingStore {
   @observable strokeWidth:number = 5
   @observable stroke:string = 'Orange'
   @observable type:string = 'line'
+  @observable eraseCanvas?: any
 
   @action
   updateFill(fill:string) {
@@ -25,5 +26,10 @@ export class DrawingStore {
   updateType(type: string) {
     this.type = type
   }
+
+  @action 
+  setEraseCanvas(fn: any) {
+    this.eraseCanvas = fn
+  } 
 
 }
