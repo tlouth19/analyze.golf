@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Pane } from 'evergreen-ui'
 import Header from './header'
 import 'normalize.css'
+import 'react-rangeslider/lib/index.css'
 
 interface Props {
   children: React.ReactNode

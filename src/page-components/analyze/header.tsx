@@ -1,10 +1,19 @@
 import * as React from 'react';
 import { navigate } from 'gatsby'
+import * as fileStore from '../../stores/FileStore'
 import { Pane, Button, Popover, Menu, IconButton } from 'evergreen-ui'
+import { inject } from 'mobx-react';
 
-interface Props {}
+interface Props {
+  fileStore: fileStore.FileStore
+}
 
+@inject('fileStore')
 class Header extends React.Component<Props> {
+  back() {
+    this.props.fileStore.clear()
+    navigate('/')
+  }
   render() {
     return (
       <Pane 
@@ -17,8 +26,11 @@ class Header extends React.Component<Props> {
         left='0px'
         right='0px'
         alignItems='center'
+        zIndex={1}
         justifyContent='space-between'>
-        <Button iconBefore="arrow-left">
+        <Button 
+          iconBefore="arrow-left"
+          onClick={() => this.back()}>
           Back
         </Button>
         <Popover

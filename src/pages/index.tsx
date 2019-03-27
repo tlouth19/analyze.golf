@@ -41,7 +41,7 @@ export default () => (
               No ads. No video uploads. No app downloads.
             </Text>
             <SelectFile/>
-            <Link to='/about'>
+            <Pane is={Link} to='/about' textDecoration='none'>
               <Button 
                 height={40}
                 marginTop='2em'
@@ -49,7 +49,7 @@ export default () => (
                 intent='none'>
                 About
               </Button>
-            </Link>
+            </Pane>
           </Pane>
           <Pane 
             flex='1'>

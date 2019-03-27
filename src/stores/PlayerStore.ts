@@ -4,7 +4,8 @@ export class PlayerStore {
   @observable playing?: boolean = false;
   @observable videoElement?: HTMLVideoElement = undefined
   @observable sourceElement?: HTMLSourceElement = undefined
-  @observable playbackSpeed: number = 1
+  @observable playbackSpeed: number = 1.0
+  @observable playbackTime: number = 0
 
   @action
   setPlaybackStatus(value: boolean) {
@@ -21,12 +22,16 @@ export class PlayerStore {
 
   @action 
   setVideoElement(element: HTMLVideoElement) {
-    this.videoElement = element
+    if (!this.videoElement) {
+      this.videoElement = element
+    }
   }
 
   @action 
   setSourceElement(element: HTMLSourceElement) {
-    this.sourceElement = element
+    if (!this.sourceElement) {
+      this.sourceElement = element
+    }
   }
 
   @action 
@@ -34,6 +39,14 @@ export class PlayerStore {
     this.playbackSpeed = speed
     if (this.videoElement) {
       this.videoElement.playbackRate = speed
+    }
+  }
+
+  @action 
+  setPlaybackTime(time: number, updateElement: boolean) {
+    this.playbackTime = time 
+    if (this.videoElement) {
+      this.videoElement.currentTime = time
     }
   }
 
