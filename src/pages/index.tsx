@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
-import * as store from '../stores/FileStore';
-import { Button, Pane, Text, Heading, Input } from 'evergreen-ui'
+import { Pane, Text, Heading } from 'evergreen-ui'
 import Layout from '../app-components/layout'
 import Screenshot from '../page-components/index/screenshot'
 import Logo from '../images/logo.svg'
 import SelectFile from '../page-components/index/select_file'
+import Draw from '../page-components/analyze/draw'
 
 export default () => (
   <Layout>
+    <Draw/>
       <Pane 
         is='main'
         display='flex'
@@ -41,15 +41,6 @@ export default () => (
               No ads. No video uploads. No app downloads.
             </Text>
             <SelectFile/>
-            <Pane is={Link} to='/about' textDecoration='none'>
-              <Button 
-                height={40}
-                marginTop='2em'
-                marginLeft='1em'
-                intent='none'>
-                About
-              </Button>
-            </Pane>
           </Pane>
           <Pane 
             flex='1'>

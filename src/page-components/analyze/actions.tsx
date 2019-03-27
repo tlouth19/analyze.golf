@@ -9,7 +9,7 @@ interface Props {
 }
 
 @inject('fileStore')
-class Header extends React.Component<Props> {
+class Actions extends React.Component<Props> {
   back() {
     this.props.fileStore.clear()
     navigate('/')
@@ -18,21 +18,15 @@ class Header extends React.Component<Props> {
     return (
       <Pane 
         is='header'
-        padding='1em'
-        backgroundColor='rgba(110, 127, 143, 0.8)'
+        paddingX='1em'
+        height='4em'
         display='flex'
-        position='fixed'
-        top='0px'
-        left='0px'
-        right='0px'
         alignItems='center'
         zIndex={1}
         justifyContent='space-between'>
-        <Button 
-          iconBefore="arrow-left"
-          onClick={() => this.back()}>
-          Back
-        </Button>
+        <IconButton 
+          icon="arrow-left"
+          onClick={() => this.back()}/>
         <Popover
           content={
             <Menu>
@@ -50,4 +44,4 @@ class Header extends React.Component<Props> {
   }
 }
 
-export default Header
+export default Actions

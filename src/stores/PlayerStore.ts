@@ -45,7 +45,7 @@ export class PlayerStore {
   @action 
   setPlaybackTime(time: number, updateElement: boolean) {
     this.playbackTime = time 
-    if (this.videoElement) {
+    if (this.videoElement && updateElement) {
       this.videoElement.currentTime = time
     }
   }

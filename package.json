@@ -19,6 +19,7 @@
     "@babel/plugin-proposal-decorators": "^7.1.6",
     "babel-preset-gatsby": "^0.1.4",
     "evergreen-ui": "^4.14.1",
+    "fabric": "^2.7.0",
     "gatsby": "^2.0.55",
     "gatsby-background-image": "^0.2.8-alpha1",
     "gatsby-image": "^2.0.35",
