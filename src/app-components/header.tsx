@@ -27,6 +27,7 @@ const Header: React.FunctionComponent<Props> = () => (
     <Text 
       is={Link}
       size={300}
+      to='/about'
       textTransform='uppercase'
       textDecoration='none'>
       About  
