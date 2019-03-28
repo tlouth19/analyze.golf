@@ -8,24 +8,25 @@ import SelectFile from '../page-components/index/select_file'
 
 export default () => (
   <Layout>
-    <Media query="(min-width: 599px)">
+    <Media query={{ minWidth: 599, minHeight: 600 }}>
       {matches =>
         <Pane 
-          is='main'
+          is='section'
           display='flex'
           alignItems='stretch' 
           justifyContent='center'
           width='100vw'
+          minHeight='300px'
           height='calc(100vh - 3.5em)'>
           <Pane 
-            height='calc(100vh - 3.5em)'
             display='flex'
             alignItems='center'
             width='100%'
             padding='2em'
             maxWidth='64em'>
             <Pane 
-              flex='1'>
+              flex='1'
+              textAlign={matches ? 'left' : 'center'}>
               <Pane 
                 is={Logo}
                 height='1.5em'
@@ -40,7 +41,7 @@ export default () => (
                 display='block'
                 marginTop='.5em'
                 size={600}>
-                No ads. No video uploads. No app downloads.
+                No ads. No video upload. No app download.
               </Text>
               <SelectFile/>
             </Pane>

@@ -29,6 +29,16 @@ class Player extends React.Component<Props> {
     this.props.fileStore.clear()
     this.props.playerStore.clear()
   }
+  setInnerRef(ref: HTMLVideoElement) {
+    if (!this.props.playerStore.videoElement) {
+     this.props.playerStore.setVideoElement(ref)
+    }
+  }
+  setSourceRef(ref: HTMLSourceElement) {
+    if (!this.props.playerStore.sourceElement) {
+     this.props.playerStore.setSourceElement(ref)
+    }
+  }
   render() {
     return (
       <Pane 
@@ -46,11 +56,11 @@ class Player extends React.Component<Props> {
             transform={`scaleX(${this.props.playerStore.flip ? -1 : 1})`}
             height='100%'
             width='100%'
-            innerRef={(ref: HTMLVideoElement) => this.props.playerStore.setVideoElement(ref)}
+            innerRef={(ref: HTMLVideoElement) => this.setInnerRef(ref)}
             onTimeUpdate={(e: React.SyntheticEvent) => this.props.playerStore.setPlaybackTime(parseFloat(e.target.currentTime), false)}>
             <source 
               src=''
-              ref={(ref: HTMLSourceElement) => this.props.playerStore.setSourceElement(ref)}/>
+              ref={(ref: HTMLSourceElement) => this.setSourceRef(ref)}/>
           </Pane>
       </Pane>
     )

@@ -12,7 +12,7 @@ const Header: React.FunctionComponent<Props> = () => (
     display='flex'
     alignItems='center'
     height='3.5em'
-    paddingX='2em'
+    paddingX='1em'
     justifyContent='space-between'>
     <Pane
       is={Link} 

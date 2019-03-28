@@ -24,7 +24,7 @@ export class PlayerStore {
 
   @action 
   setVideoElement(element: HTMLVideoElement) {
-    if (!this.videoElement) {
+    if (element) {
       this.videoElement = element
       this.videoElement.setAttribute('webkit-playsinline', '')
       this.videoElement.setAttribute('playsinline', '')
