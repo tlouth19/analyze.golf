@@ -4,7 +4,7 @@ import { observer, inject } from 'mobx-react';
 import { Pane } from 'evergreen-ui'
 import * as store from '../stores/FileStore';
 import Layout from '../app-components/layout'
-import Actions from '../page-components/analyze/actions'
+import Actions from '../page-components/analyze/actions/'
 import Player from '../page-components/analyze/player'
 
 interface Props {
