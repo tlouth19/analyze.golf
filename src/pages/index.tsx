@@ -3,7 +3,7 @@ import { Pane, Text, Heading } from 'evergreen-ui'
 import Media from 'react-media'
 import Layout from '../app-components/layout'
 import Screenshot from '../page-components/index/screenshot'
-import Logo from '../images/logo.svg'
+import Logo from '../images/app/logo.svg'
 import SelectFile from '../page-components/index/select_file'
 
 export default () => (

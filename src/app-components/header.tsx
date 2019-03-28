@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Pane, Text } from 'evergreen-ui'
 import { Link } from 'gatsby';
-import Logo from '../images/logo.svg'
+import Logo from '../images/app/logo.svg'
 
 interface Props {}
 
