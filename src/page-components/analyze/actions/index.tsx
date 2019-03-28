@@ -7,6 +7,8 @@ import { inject, observer } from 'mobx-react';
 import { PlayerStore } from '../../../stores/PlayerStore';
 import Drawing from './drawing'
 import Speed from './speed'
+import Play from './play'
+import Flip from './flip'
 
 interface Props {
   fileStore: fileStore.FileStore
@@ -43,11 +45,7 @@ class Actions extends React.Component<Props> {
         left='0px'
         bottom='0px'
         zIndex={1}>
-        <IconButton
-          icon={this.props.playerStore.playing ? 'pause' : 'play'} 
-          marginBottom='1em'
-          marginX='auto'
-          onClick={() => this.props.playerStore.setPlaybackStatus(!this.props.playerStore.playing)}/>
+        <Play/>
         <IconButton 
           icon="arrow-left"
           marginX='auto'
@@ -55,6 +53,7 @@ class Actions extends React.Component<Props> {
           onClick={() => this.back()}/>
         <Speed/>
         <Drawing/>
+        <Flip/>
       </Pane>
       <Pane 
         position='fixed'
@@ -73,6 +72,7 @@ class Actions extends React.Component<Props> {
             is={Slider}
             width='100%'
             min={0}
+            step={.05}
             max={this.props.playerStore.duration}
             value={this.props.playerStore.playbackTime}
             onChangeStart={() => this.props.playerStore.setPlaybackStatus(false)}

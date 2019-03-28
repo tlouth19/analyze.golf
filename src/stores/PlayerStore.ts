@@ -7,6 +7,7 @@ export class PlayerStore {
   @observable playbackSpeed: number = 1.0
   @observable playbackTime: number = 0
   @observable duration?: number = undefined
+  @observable flip: boolean = false 
 
   @action
   setPlaybackStatus(value: boolean) {
@@ -65,6 +66,11 @@ export class PlayerStore {
     this.playing = false
     this.duration = undefined
     this.playbackTime = 0
+  }
+
+  @action 
+  setFlip(value: boolean) {
+    this.flip = value
   }
 
 }

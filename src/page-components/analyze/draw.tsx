@@ -32,12 +32,12 @@ class Draw extends React.Component<Props> {
       }
       this.props.drawingStore.setEraseCanvas(() => this.canvas.remove(...this.canvas.getObjects()))
     }
-    window.addEventListener('resize', this.onWindowResize)
-    window.addEventListener('orientation', this.onWindowResize)
+    window.addEventListener('resize', () => this.onWindowResize())
+    window.addEventListener('orientation', () => this.onWindowResize())
   }
   componentWillUnmount() {
-    window.removeEventListener('resize', this.onWindowResize)
-    window.removeEventListener('orientation', this.onWindowResize)
+    window.removeEventListener('resize', () => this.onWindowResize())
+    window.removeEventListener('orientation', () => this.onWindowResize())
   }
   onWindowResize() {
     if (this.wrapRef) {

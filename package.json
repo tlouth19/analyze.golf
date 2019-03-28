@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "gatsby develop",
+    "start-m": "gatsby develop -H 0.0.0.0 -p 8000",
     "build": "rm -rf public && rm -rf .cache && gatsby build",
     "tsc": "tsc",
     "lint": "tslint -p .",

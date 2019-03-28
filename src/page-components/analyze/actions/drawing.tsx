@@ -17,6 +17,7 @@ class Drawing extends React.Component<Props> {
   }
   render() {
     return (
+      <>
       <Popover
         content={
           <Menu>
@@ -51,18 +52,19 @@ class Drawing extends React.Component<Props> {
               </Menu.Item>
             )}
           </Menu.Group>
-          <Menu.Divider />
-          <Menu.Group title='Drawing Actions'>
-            <Menu.Item 
-              icon='eraser'
-              onSelect={() => this.erase()}>
-              Erase All
-            </Menu.Item>
-          </Menu.Group>
         </Menu>
         }>
-        <IconButton marginX='auto' icon="edit"/>
+        <IconButton 
+          marginX='auto' 
+          icon="edit"
+          marginBottom='1em'/>
       </Popover>
+      <IconButton 
+        marginX='auto' 
+        icon="eraser"
+        onClick={() => this.erase()}
+        marginBottom='1em'/>
+      </>
     )
   }
 }

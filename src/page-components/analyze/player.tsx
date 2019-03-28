@@ -35,22 +35,23 @@ class Player extends React.Component<Props> {
         position='fixed'
         top='4em'
         left='4em'
-        bottom='4em'
+        bottom='2em'
         right='0em'>
-        <Draw/>
-        <Pane
-          is='video'
-          muted={true}
-          maxHeight='100%'
-          maxWidth='100%'
-          height='100%'
-          width='100%'
-          innerRef={(ref: HTMLVideoElement) => this.props.playerStore.setVideoElement(ref)}
-          onTimeUpdate={(e: React.SyntheticEvent) => this.props.playerStore.setPlaybackTime(parseFloat(e.target.currentTime), false)}>
-          <source 
-            src=''
-            ref={(ref: HTMLSourceElement) => this.props.playerStore.setSourceElement(ref)}/>
-        </Pane>
+          <Draw/>
+          <Pane
+            is='video'
+            muted={true}
+            maxHeight='100%'
+            maxWidth='100%'
+            transform={`scaleX(${this.props.playerStore.flip ? -1 : 1})`}
+            height='100%'
+            width='100%'
+            innerRef={(ref: HTMLVideoElement) => this.props.playerStore.setVideoElement(ref)}
+            onTimeUpdate={(e: React.SyntheticEvent) => this.props.playerStore.setPlaybackTime(parseFloat(e.target.currentTime), false)}>
+            <source 
+              src=''
+              ref={(ref: HTMLSourceElement) => this.props.playerStore.setSourceElement(ref)}/>
+          </Pane>
       </Pane>
     )
   }
