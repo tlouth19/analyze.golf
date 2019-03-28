@@ -57,16 +57,17 @@ class Actions extends React.Component<Props> {
         <IconButton 
           icon='step-backward' 
           marginRight='1em'/>
-        <Pane
-          is={Slider}
-          width='100%'
-          min={0}
-          // max={this.props.playerStore.videoElement ? this.props.playerStore.videoElement.duration : 0}
-          max={160}
-          value={this.props.playerStore.playbackTime}
-          onChangeStart={() => this.props.playerStore.setPlaybackStatus(false)}
-          onChange={(value: number) => this.props.playerStore.setPlaybackTime(value, true)}
-          onChangeComplete={() => this.props.playerStore.setPlaybackStatus(true)}/>
+        {this.props.playerStore.duration &&
+          <Pane
+            is={Slider}
+            width='100%'
+            min={0}
+            max={this.props.playerStore.duration}
+            value={this.props.playerStore.playbackTime}
+            onChangeStart={() => this.props.playerStore.setPlaybackStatus(false)}
+            onChange={(value: number) => this.props.playerStore.setPlaybackTime(value, true)}
+            onChangeComplete={() => this.props.playerStore.setPlaybackStatus(true)}/>
+        }
         <IconButton 
           icon='step-forward' 
           marginLeft='1em'/>

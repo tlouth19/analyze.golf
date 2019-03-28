@@ -6,6 +6,7 @@ export class PlayerStore {
   @observable sourceElement?: HTMLSourceElement = undefined
   @observable playbackSpeed: number = 1.0
   @observable playbackTime: number = 0
+  @observable duration?: number
 
   @action
   setPlaybackStatus(value: boolean) {
@@ -24,6 +25,11 @@ export class PlayerStore {
   setVideoElement(element: HTMLVideoElement) {
     if (!this.videoElement) {
       this.videoElement = element
+      this.videoElement.addEventListener('loadeddata', () => {
+        if (this.videoElement) {
+          this.duration = this.videoElement.duration
+        }
+      })
     }
   }
 
