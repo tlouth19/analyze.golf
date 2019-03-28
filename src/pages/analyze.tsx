@@ -6,7 +6,6 @@ import * as store from '../stores/FileStore';
 import Layout from '../app-components/layout'
 import Actions from '../page-components/analyze/actions'
 import Player from '../page-components/analyze/player'
-import Controls from '../page-components/analyze/controls'
 
 interface Props {
   fileStore: store.FileStore
@@ -28,12 +27,11 @@ class Analyze extends React.Component<Props> {
           display='flex'
           alignItems='stretch'
           flexDirection='column'
-          height='100vh'
           width='100vw'
+          height='100vh'
           background='black'>
           <Actions/>
           <Player/>
-          <Controls/>
         </Pane>
       </Layout>
     )

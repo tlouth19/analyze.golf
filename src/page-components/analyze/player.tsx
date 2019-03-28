@@ -31,7 +31,7 @@ class Player extends React.Component<Props> {
     return (
       <Pane 
         position='relative'
-        height='calc(100vh - 4em - 5em)'>
+        height='calc(100vh - 4em)'>
         <Draw/>
         <Pane
           is='video'
@@ -40,7 +40,11 @@ class Player extends React.Component<Props> {
           maxWidth='100%'
           height='100%'
           width='100%'
-          innerRef={(ref: HTMLVideoElement) => this.props.playerStore.setVideoElement(ref)}
+          innerRef={(ref: HTMLVideoElement) => {
+            this.props.playerStore.setVideoElement(ref)
+            ref.setAttribute('webkit-playsinline', 'webkit-playsinline')
+            ref.setAttribute('playsinline', 'playsinline')
+          }}
           onTimeUpdate={(e: React.SyntheticEvent) => this.props.playerStore.setPlaybackTime(parseFloat(e.target.currentTime), false)}>
           <source 
             src=''
