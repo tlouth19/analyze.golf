@@ -6,7 +6,7 @@ export class PlayerStore {
   @observable sourceElement?: HTMLSourceElement = undefined
   @observable playbackSpeed: number = 1.0
   @observable playbackTime: number = 0
-  @observable duration?: number
+  @observable duration?: number = undefined
 
   @action
   setPlaybackStatus(value: boolean) {
@@ -25,6 +25,8 @@ export class PlayerStore {
   setVideoElement(element: HTMLVideoElement) {
     if (!this.videoElement) {
       this.videoElement = element
+      this.videoElement.setAttribute('webkit-playsinline', '')
+      this.videoElement.setAttribute('playsinline', '')
       this.videoElement.addEventListener('loadeddata', () => {
         if (this.videoElement) {
           this.duration = this.videoElement.duration
@@ -54,6 +56,15 @@ export class PlayerStore {
     if (this.videoElement && updateElement) {
       this.videoElement.currentTime = time
     }
+  }
+
+  @action 
+  clear() {
+    this.videoElement = undefined
+    this.sourceElement = undefined 
+    this.playing = false
+    this.duration = undefined
+    this.playbackTime = 0
   }
 
 }

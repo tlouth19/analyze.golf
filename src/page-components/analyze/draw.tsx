@@ -106,7 +106,6 @@ class Draw extends React.Component<Props> {
     this.isDown = false
   }
   render() {
-    console.log(this.props.drawingStore.type)
     return (
       <Pane 
         innerRef={(ref: HTMLElement) => this.wrapRef = ref}

@@ -20,6 +20,7 @@ class Analyze extends React.Component<Props> {
     }
   }
   render() {
+    if (!this.props.fileStore.file) return null
     return (
       <Layout hideHeader={true}>
         <Pane 

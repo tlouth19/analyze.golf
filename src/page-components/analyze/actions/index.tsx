@@ -21,6 +21,16 @@ class Actions extends React.Component<Props> {
     this.props.fileStore.clear()
     navigate('/')
   }
+  skipBackward() {
+    if (this.props.playerStore.videoElement) {
+      this.props.playerStore.videoElement.currentTime = this.props.playerStore.videoElement.currentTime - .05
+    }
+  }
+  skipForward() {
+    if (this.props.playerStore.videoElement) {
+      this.props.playerStore.videoElement.currentTime = this.props.playerStore.videoElement.currentTime + .05
+    }
+  }
   render() {
     return (
       <>
@@ -56,6 +66,7 @@ class Actions extends React.Component<Props> {
         paddingRight='1em'>
         <IconButton 
           icon='step-backward' 
+          onClick={() => this.skipBackward()}
           marginRight='1em'/>
         {this.props.playerStore.duration &&
           <Pane
@@ -70,6 +81,7 @@ class Actions extends React.Component<Props> {
         }
         <IconButton 
           icon='step-forward' 
+          onClick={() => this.skipForward()}
           marginLeft='1em'/>
         </Pane>
       </>

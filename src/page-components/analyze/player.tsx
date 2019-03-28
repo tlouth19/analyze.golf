@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as fileStore from '../../stores/FileStore';
 import * as playerStore from '../../stores/PlayerStore'
-import { Pane, IconButton } from 'evergreen-ui'
+import { Pane } from 'evergreen-ui'
 import { inject, observer } from 'mobx-react';
 import Draw from './draw'
 
@@ -26,6 +26,8 @@ class Player extends React.Component<Props> {
 			const objectURL = URL.createObjectURL(this.props.fileStore.file);
 			URL.revokeObjectURL(objectURL);
     }
+    this.props.fileStore.clear()
+    this.props.playerStore.clear()
   }
   render() {
     return (
@@ -38,16 +40,12 @@ class Player extends React.Component<Props> {
         <Draw/>
         <Pane
           is='video'
-          muted
+          muted={true}
           maxHeight='100%'
           maxWidth='100%'
           height='100%'
           width='100%'
-          innerRef={(ref: HTMLVideoElement) => {
-            this.props.playerStore.setVideoElement(ref)
-            // ref.setAttribute('webkit-playsinline', 'webkit-playsinline')
-            // ref.setAttribute('playsinline', 'playsinline')
-          }}
+          innerRef={(ref: HTMLVideoElement) => this.props.playerStore.setVideoElement(ref)}
           onTimeUpdate={(e: React.SyntheticEvent) => this.props.playerStore.setPlaybackTime(parseFloat(e.target.currentTime), false)}>
           <source 
             src=''
