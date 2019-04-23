@@ -5,6 +5,7 @@ import Layout from '../app-components/layout'
 import Screenshot from '../page-components/index/screenshot'
 import Logo from '../images/app/logo.svg'
 import SelectFile from '../page-components/index/select_file'
+import Background from '../images/app/background.svg'
 
 export default () => (
   <Layout>
@@ -18,6 +19,17 @@ export default () => (
           width='100vw'
           minHeight='300px'
           height='calc(100vh - 3.5em)'>
+          {matches &&
+            <Pane 
+              is={Background}
+              position='fixed'
+              top='0vh'
+              zIndex='-5'
+              opacity='0.03'
+              width='calc(90vw + 55vh)'
+              height='auto'
+              right='-50vw'/>
+          }
           <Pane 
             display='flex'
             alignItems='center'

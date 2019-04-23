@@ -12,6 +12,7 @@ const Header: React.FunctionComponent<Props> = () => (
     display='flex'
     alignItems='center'
     height='3.5em'
+    background='white'
     paddingX='1em'
     justifyContent='space-between'>
     <Pane 
