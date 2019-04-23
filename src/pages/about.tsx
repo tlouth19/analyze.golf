@@ -18,21 +18,6 @@ export default () => (
       <Text size={500}>
         Analyze.golf was built to give golfers a free browser based swing analysis tool. 
       </Text>
-      <Heading 
-        size={800}
-        marginBottom='.5em'
-        marginTop='2em'>
-        Why was this built
-      </Heading>
-      <Text size={500}>
-        Analyze.golf was built to give golfers a free browser based swing analysis tool. 
-      </Text>
-      <Heading 
-        size={800}
-        marginBottom='.5em'
-        marginTop='2em'>
-        Open source tools used to build this web application
-      </Heading>
     </Pane>  
   </Layout>
 )
