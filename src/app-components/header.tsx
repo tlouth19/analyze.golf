@@ -46,7 +46,7 @@ const Header: React.FunctionComponent<Props> = () => (
 				marginLeft=".25em"
 				display="flex"
 				alignItems="center"
-				justifyCenter="center"
+				justifyContent="center"
 				size={300}
 				padding="1em"
 				borderRadius="50%"

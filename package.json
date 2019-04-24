@@ -13,7 +13,7 @@
     "prettier": "prettier --write 'src/**/*.tsx'",
     "gatsby": "gatsby",
     "test": "jest",
-    "deploy": "gatsby build && s3-deploy './public/**' --cwd './public/' --region us-east-1 --bucket analyze.golf --gzip --cache 604800 --index --deleteRemoved --distId E2NTBHJ74EL34D --invalidate '/*'"
+    "deploy": "npm run build && s3-deploy './public/**' --cwd './public/' --region us-east-1 --bucket analyze.golf --gzip --cache 604800 --index --deleteRemoved --distId E2NTBHJ74EL34D --invalidate '/*'"
   },
   "dependencies": {
     "@babel/core": "^7.1.6",

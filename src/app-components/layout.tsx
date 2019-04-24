@@ -1,8 +1,7 @@
 import * as React from "react"
-import { Pane } from "evergreen-ui"
 import Header from "./header"
 import { Helmet } from "react-helmet"
-import social from "./social.jpg"
+import social from "../images/social/card.jpg"
 import "normalize.css"
 import "../css/range.css"
 
@@ -14,7 +13,7 @@ type Props = {
 }
 
 const Layout: React.FunctionComponent<Props> = ({ children, hideHeader, title, description }) => (
-	<Pane>
+	<React.Fragment>
 		<Helmet
 			title={title}
 			htmlAttributes={{ lang: "en" }}
@@ -39,7 +38,7 @@ const Layout: React.FunctionComponent<Props> = ({ children, hideHeader, title, d
 		/>
 		{!hideHeader && <Header />}
 		{children}
-	</Pane>
+	</React.Fragment>
 )
 
 Layout.defaultProps = {

@@ -1,5 +1,5 @@
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    node: { fs: 'empty' },
-  });
-};
+// exports.onCreateWebpackConfig = ({ actions }) => {
+//   actions.setWebpackConfig({
+//     node: { fs: 'empty' },
+//   });
+// };
