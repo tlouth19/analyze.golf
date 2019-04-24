@@ -1,15 +1,15 @@
-import { observable, action } from 'mobx';
+import { observable, action } from "mobx"
 
 export class FileStore {
-  @observable file?: File = undefined;
+	@observable file?: File = undefined
 
-  @action
-  set(file: File) {
-    this.file = file
-  }
+	@action
+	set(file: File) {
+		this.file = file
+	}
 
-  @action
-  clear() {
-    this.file = undefined
-  }
+	@action
+	clear() {
+		this.file = undefined
+	}
 }
