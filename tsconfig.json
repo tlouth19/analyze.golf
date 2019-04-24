@@ -9,5 +9,6 @@
     "jsx": "react",
     "experimentalDecorators": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "types": ["@emotion/core"]
 }

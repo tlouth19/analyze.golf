@@ -1,7 +1,6 @@
 {
   "presets": [
-    "babel-preset-gatsby",
-    "@emotion/babel-preset-css-prop"
+    "babel-preset-gatsby"
   ],
   "plugins": [
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
