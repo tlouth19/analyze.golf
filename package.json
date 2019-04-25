@@ -1,8 +1,8 @@
 {
-  "name": "@borekb/gatsby-starter-mobx",
-  "description": "Gatsby starter with MobX and TypeScript",
+  "name": "analyze.golf",
+  "description": "Browser-based golf swing analyzer built with Gatsby + TypeScript + MobX",
   "version": "1.0.0",
-  "author": "Borek Bernard <borekb@gmail.com>",
+  "author": "Tyson Louth <tysonlouth@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "gatsby develop",
