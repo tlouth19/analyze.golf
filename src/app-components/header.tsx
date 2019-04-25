@@ -11,6 +11,12 @@ const HoverButton = styled(Link)`
 	}
 `
 
+const HoverAnchor = styled.a`
+	:hover {
+		background: #ededed;
+	}
+`
+
 interface Props {}
 
 const Header: React.FunctionComponent<Props> = () => (
@@ -43,8 +49,10 @@ const Header: React.FunctionComponent<Props> = () => (
 				About
 			</Text>
 			<Text
-				is={HoverButton}
-				as='a'
+				is={HoverAnchor}
+				href='https://twitter.com/AnalyzeGolf'
+				target='_blank'
+				rel='noopener noreferrer'
 				marginLeft=".25em"
 				display="flex"
 				alignItems="center"
