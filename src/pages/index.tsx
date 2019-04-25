@@ -3,7 +3,7 @@ import { Pane, Text, Heading } from "evergreen-ui"
 import Layout from "../app-components/layout"
 import styled from "@emotion/styled"
 import Screenshot from "../page-components/index/screenshot"
-import Logo from "../images/app/logo.inline.svg"
+import Logo from "../images/logo/logo.inline.svg"
 import SelectFile from "../page-components/index/select_file"
 import background from "../images/app/darklayout.svg"
 

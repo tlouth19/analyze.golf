@@ -26,7 +26,7 @@
     "evergreen-ui": "^4.14.1",
     "fabric": "^2.7.0",
     "fs": "^0.0.1-security",
-    "gatsby": "^2.0.55",
+    "gatsby": "^2.0.100",
     "gatsby-background-image": "^0.2.8-alpha1",
     "gatsby-image": "^2.0.35",
     "gatsby-plugin-google-analytics": "^2.0.18",

@@ -2,7 +2,7 @@ import * as React from "react"
 import { Pane, Text, Badge } from "evergreen-ui"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
-import Logo from "../images/app/logo.inline.svg"
+import Logo from "../images/logo/logo.inline.svg"
 import Twitter from "../images/social/twitter.inline.svg"
 
 const HoverButton = styled(Link)`
