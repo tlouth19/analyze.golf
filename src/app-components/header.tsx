@@ -45,7 +45,8 @@ const Header: React.FunctionComponent<Props> = () => (
 				padding="1em"
 				borderRadius="3px"
 				textTransform="uppercase"
-				textDecoration="none">
+				textDecoration="none"
+				title='View about page'>
 				About
 			</Text>
 			<Text
@@ -62,7 +63,7 @@ const Header: React.FunctionComponent<Props> = () => (
 				borderRadius="50%"
 				cursor="pointer"
 				textDecoration="none">
-				<Twitter width="1em" height="1em" />
+				<Twitter width="1em" height="1em" alt='Twitter' title='View Twitter page'/>
 			</Text>
 		</Pane>
 	</Pane>
