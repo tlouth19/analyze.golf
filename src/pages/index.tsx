@@ -5,22 +5,6 @@ import styled from "@emotion/styled"
 import Screenshot from "../page-components/index/screenshot"
 import Logo from "../images/logo/logo.inline.svg"
 import SelectFile from "../page-components/index/select_file"
-import background from "../images/app/darklayout.svg"
-
-const Wrap = styled.section`
-	:before {
-		content: "";
-		background-image: url(${background});
-		background-size: cover;
-		background-position: center center;
-		opacity: 0.03;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-	}
-`
 
 const Left = styled.div`
 	text-align: left;
@@ -38,7 +22,7 @@ const Right = styled.div`
 export default () => (
 	<Layout>
 		<Pane
-			is={Wrap}
+			is='section'
 			display="flex"
 			alignItems="stretch"
 			justifyContent="center"
