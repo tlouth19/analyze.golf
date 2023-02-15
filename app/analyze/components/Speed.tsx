@@ -6,12 +6,22 @@ import * as Popover from "@radix-ui/react-popover";
 
 import { usePlayer } from "./Analyzer";
 
-const playbackRates = [0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0];
+const enum SpeedEnum {
+  SLOW4 = 0.1,
+  SLOW3 = 0.25,
+  SLOW2 = 0.5,
+  SLOW1 = 0.75,
+  NORMAL = 1.0,
+  FAST1 = 1.5, 
+  FAST2 = 2.0
+}
+
+const playbackRates = [SpeedEnum.SLOW4, SpeedEnum.SLOW3, SpeedEnum.SLOW2, SpeedEnum.SLOW1, SpeedEnum.NORMAL, SpeedEnum.FAST1, SpeedEnum.FAST2];
 
 export default function Speed() {
   const player = usePlayer();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [speed, setSpeed] = useState(1.0);
+  const [speed, setSpeed] = useState<SpeedEnum>(SpeedEnum.NORMAL);
 
   useEffect(() => {
     player.onratechange = (e: Event) => {
@@ -20,7 +30,7 @@ export default function Speed() {
     };
   }, [player]);
 
-  function handleChangePlaybackRate(speed: number) {
+  function handleChangePlaybackRate(speed: SpeedEnum) {
     player.playbackRate = speed;
     setIsOpen(false);
   }
