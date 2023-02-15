@@ -8,15 +8,11 @@ export default function Skip() {
   const player = usePlayer();
 
   function handleSkipForward() {
-
-      player.currentTime += 0.05;
-   
+    player.currentTime += 0.05;
   }
 
   function handleSkipBackward() {
-
-      player.currentTime -= 0.05;
-  
+    player.currentTime -= 0.05;
   }
 
   return (

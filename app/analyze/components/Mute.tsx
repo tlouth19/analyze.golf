@@ -6,29 +6,23 @@ import { usePlayer } from "./Analyzer";
 const mutedLabel = "Unmute video";
 const label = "Mute video";
 
-export default function Muted() {
+export default function Mute() {
   const player = usePlayer();
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
-   
-      player.onvolumechange = (e) => {
-        const currentTarget = e.currentTarget as HTMLVideoElement;
-        setIsMuted(currentTarget.muted);
-      };
-
+    player.onvolumechange = (e) => {
+      const currentTarget = e.currentTarget as HTMLVideoElement;
+      setIsMuted(currentTarget.muted);
+    };
   }, [player]);
 
   function handleMute() {
-   
-      player.muted = true;
-  
+    player.muted = true;
   }
 
   function handleVolume() {
-   
-      player.muted = false;
-  
+    player.muted = false;
   }
 
   if (isMuted) {

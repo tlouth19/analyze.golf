@@ -23,7 +23,13 @@ const drawTypes = [
   { type: DrawTypeEnum.CIRCLE, icon: <BsCircle /> },
 ];
 
-const drawColors = [DrawColorEnum.WHITE, DrawColorEnum.GREEN, DrawColorEnum.RED, DrawColorEnum.BLUE, DrawColorEnum.ORANGE]
+const drawColors = [
+  DrawColorEnum.WHITE,
+  DrawColorEnum.GREEN,
+  DrawColorEnum.RED,
+  DrawColorEnum.BLUE,
+  DrawColorEnum.ORANGE,
+];
 
 export default function DrawTools() {
   const player = usePlayer();
@@ -68,36 +74,34 @@ export default function DrawTools() {
                   onClick={() => handleChangeDrawType(type.type)}
                   aria-label={`Draw with ${type.type}`}
                   className={`block text-center py-2 px-4 ${
-                    drawType === type.type
-                      ? "text-brand-blue bg-white"
-                      : ""
+                    drawType === type.type ? "text-brand-blue bg-white" : ""
                   }`}
                 >
                   {type.icon}
                 </button>
               ))}
               <Separator.Root className="h-[1px] w-full my-1 bg-current" />
-              {drawColors.map(color => (
-                 <button
-                 key={color}
-                 type="button"
-                 onClick={() => handleChangeDrawColor(color)}
-                 aria-label={`Draw with ${color}`}
-                 className={`block text-center py-2 px-4 ${
-                   drawColor === color
-                     ? "text-brand-blue bg-white"
-                     : ""
-                 }`}
-               >
-                 <div className={`h-4 w-4 border border-black `} style={{ backgroundColor: color }}/>
-               </button>
+              {drawColors.map((color) => (
+                <button
+                  key={color}
+                  type="button"
+                  onClick={() => handleChangeDrawColor(color)}
+                  aria-label={`Draw with ${color}`}
+                  className={`block text-center py-2 px-4 ${
+                    drawColor === color ? "text-brand-blue bg-white" : ""
+                  }`}
+                >
+                  <div
+                    className={`h-4 w-4 border border-black `}
+                    style={{ backgroundColor: color }}
+                  />
+                </button>
               ))}
               <Popover.Arrow className="fill-black" />
             </Popover.Content>
           </Popover.Portal>
         </Popover.Root>
       </div>
-    
     </>
   );
 }

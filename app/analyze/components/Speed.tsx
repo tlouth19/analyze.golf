@@ -1,25 +1,24 @@
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
-import { BsSpeedometer } from 'react-icons/bs'
+import { BsSpeedometer } from "react-icons/bs";
 import * as Popover from "@radix-ui/react-popover";
 
 import { usePlayer } from "./Analyzer";
 
+const playbackRates = [0.1, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0];
 
-const playbackRates = [.10, .25, .50, .75, 1.0, 1.5, 2.0];
-
-export default  function Speed() {
-const player = usePlayer()
+export default function Speed() {
+  const player = usePlayer();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [speed, setSpeed] = useState(1.0)
+  const [speed, setSpeed] = useState(1.0);
 
   useEffect(() => {
     player.onratechange = (e: Event) => {
-        const currentTarget = e.currentTarget as HTMLVideoElement;
-        setSpeed(currentTarget.playbackRate)
-    }
-  }, [player])
+      const currentTarget = e.currentTarget as HTMLVideoElement;
+      setSpeed(currentTarget.playbackRate);
+    };
+  }, [player]);
 
   function handleChangePlaybackRate(speed: number) {
     player.playbackRate = speed;
@@ -33,7 +32,11 @@ const player = usePlayer()
   return (
     <Popover.Root onOpenChange={handleOpenChange} open={isOpen}>
       <Popover.Trigger asChild>
-        <button type="button" className="btn-action" aria-label='Change video playback rate'>
+        <button
+          type="button"
+          className="btn-action"
+          aria-label="Change video playback rate"
+        >
           <BsSpeedometer />
         </button>
       </Popover.Trigger>
@@ -44,7 +47,9 @@ const player = usePlayer()
               key={rate}
               type="button"
               onClick={() => handleChangePlaybackRate(rate)}
-              className={`block text-center py-1 px-4 ${rate === speed ? 'text-brand-blue bg-white' : ''}`}
+              className={`block text-center py-1 px-4 ${
+                rate === speed ? "text-brand-blue bg-white" : ""
+              }`}
             >
               {rate}x
             </button>

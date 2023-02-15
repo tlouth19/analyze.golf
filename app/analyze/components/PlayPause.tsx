@@ -12,22 +12,16 @@ export default function PlayPause() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-   
-      player.onplay = () => setIsPlaying(true);
-      player.onpause = () => setIsPlaying(false);
-
+    player.onplay = () => setIsPlaying(true);
+    player.onpause = () => setIsPlaying(false);
   }, [player]);
 
   function handlePause() {
-  
-      player.pause();
-
+    player.pause();
   }
 
   async function handlePlay() {
-
-      player.play();
-
+    player.play();
   }
 
   if (isPlaying) {

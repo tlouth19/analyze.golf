@@ -7,19 +7,17 @@ export default function Flip() {
   const player = usePlayer();
 
   function handleFlip() {
-  
-      const isFlipped = player.getAttribute("data-flipped");
+    const isFlipped = player.getAttribute("data-flipped");
 
-      if (isFlipped === "false") {
-        player.classList.remove("scale-x-100");
-        player.classList.add("-scale-x-100");
-        player.setAttribute("data-flipped", "true");
-      } else {
-        player.classList.remove("-scale-x-100");
-        player.classList.add("scale-x-100");
-        player.setAttribute("data-flipped", "false");
-      }
-   
+    if (isFlipped === "false") {
+      player.classList.remove("scale-x-100");
+      player.classList.add("-scale-x-100");
+      player.setAttribute("data-flipped", "true");
+    } else {
+      player.classList.remove("-scale-x-100");
+      player.classList.add("scale-x-100");
+      player.setAttribute("data-flipped", "false");
+    }
   }
 
   return (
