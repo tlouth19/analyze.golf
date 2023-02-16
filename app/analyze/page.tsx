@@ -7,14 +7,19 @@ export default function Page({
 }: {
   searchParams?: { [key: string]: string | string[] | undefined | null };
 }) {
-  const blob = searchParams?.blob as string;
+ let blob 
 
-  if (!blob) {
-    return <div>No blob.</div>
-  }
+//  if (searchParams){
+  
+//  }
+
+  // if (!blob) {
+  //   return <div>No blob.</div>
+  // }
 
   return (
     <div className="bg-black h-screen w-screen relative flex justify-center items-stretch">
+      {blob}
       <Analyzer />
     </div>
   );
