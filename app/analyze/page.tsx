@@ -4,7 +4,9 @@ import Analyzer from "./components/Analyzer";
 
 export default function Page({
   searchParams,
+  params,
 }: {
+  params: any,
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const blob = searchParams?.blob as string;
@@ -14,7 +16,8 @@ export default function Page({
       <div>No blob
 
         Blob: {blob}
-        Params: {JSON.stringify(searchParams)}
+        sParams: {JSON.stringify(searchParams)}
+        p: {JSON.stringify(params)}
       </div>
     )
   }
