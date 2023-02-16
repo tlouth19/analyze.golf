@@ -38,6 +38,7 @@ export default function Analyzer() {
 
   if (!blob) {
     console.log('this redirect')
+    return <div>no blob</div>
     // redirect("/");
   }
 
