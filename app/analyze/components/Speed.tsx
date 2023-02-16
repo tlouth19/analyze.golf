@@ -12,11 +12,19 @@ const enum SpeedEnum {
   SLOW2 = 0.5,
   SLOW1 = 0.75,
   NORMAL = 1.0,
-  FAST1 = 1.5, 
-  FAST2 = 2.0
+  FAST1 = 1.5,
+  FAST2 = 2.0,
 }
 
-const playbackRates = [SpeedEnum.SLOW4, SpeedEnum.SLOW3, SpeedEnum.SLOW2, SpeedEnum.SLOW1, SpeedEnum.NORMAL, SpeedEnum.FAST1, SpeedEnum.FAST2];
+const playbackRates = [
+  SpeedEnum.SLOW4,
+  SpeedEnum.SLOW3,
+  SpeedEnum.SLOW2,
+  SpeedEnum.SLOW1,
+  SpeedEnum.NORMAL,
+  SpeedEnum.FAST1,
+  SpeedEnum.FAST2,
+];
 
 export default function Speed() {
   const player = usePlayer();

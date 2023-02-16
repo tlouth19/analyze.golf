@@ -5,14 +5,14 @@ const label = "Close video";
 
 export default function Close() {
   const router = useRouter();
-  // const params = useSearchParams();
+  const params = useSearchParams();
 
   function handleClose() {
-    // const blob = params.get("blob");
+    const blob = params.get("blob");
 
-    // if (blob) {
-    //   URL.revokeObjectURL(blob);
-    // }
+    if (blob) {
+      URL.revokeObjectURL(blob);
+    }
 
     router.push("/");
   }

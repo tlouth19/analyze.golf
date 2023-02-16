@@ -1,24 +1,31 @@
 "use client";
 
+import React, { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import React, { useRef } from "react";
+import { BsArrowRepeat } from "react-icons/bs";
 
 export default function SelectFile() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const router = useRouter();
 
   function handleOpenFile() {
     if (inputRef.current) {
       inputRef.current.click();
+      setIsSubmitting(true);
     }
   }
 
   function handleSelectFile(e: React.SyntheticEvent) {
-    const target = e.target as HTMLInputElement;
-    const files = target.files;
-    if (files?.[0]) {
-      const blob = URL.createObjectURL(files[0]);
-      router.push(`/analyze?blob=${encodeURIComponent(blob)}`);
+    try {
+      const target = e.target as HTMLInputElement;
+      const files = target.files;
+      if (files?.[0]) {
+        const blob = URL.createObjectURL(files[0]);
+        router.push(`/analyze?blob=${encodeURIComponent(blob)}`);
+      }
+    } catch (err) {
+      setIsSubmitting(false);
     }
   }
 
@@ -27,9 +34,17 @@ export default function SelectFile() {
       <button
         type="button"
         onClick={handleOpenFile}
-        className="px-4 py-3 bg-brand-blue rounded uppercase font-semibold text-white text-xl tracking-wide mb-2"
+        disabled={isSubmitting}
+        className="px-4 py-3 bg-brand-blue rounded uppercase font-semibold text-white text-xl tracking-wide mb-2 relative"
       >
-        Select Video
+        {isSubmitting && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <BsArrowRepeat className="animate-spin" />
+          </div>
+        )}
+        <span className={`${isSubmitting ? "opacity-0" : ""}`}>
+          Select Video
+        </span>
       </button>
       <input
         className="hidden"

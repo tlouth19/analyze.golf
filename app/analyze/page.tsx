@@ -10,15 +10,14 @@ export default function page({
   const blob = searchParams?.blob as string;
 
   if (!blob) {
-   redirect('/')
+    redirect("/");
   }
 
   return (
     <div className="bg-black h-screen w-screen relative flex justify-center items-stretch">
-      <Analyzer blob={blob}/>
+      <Analyzer />
     </div>
   );
 }
 
-
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
