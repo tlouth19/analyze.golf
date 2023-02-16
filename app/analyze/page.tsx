@@ -28,3 +28,6 @@ export default function page({
     </div>
   );
 }
+
+
+export const dynamic = 'force-dynamic'
