@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams, redirect } from "next/navigation";
+// import { useSearchParams, redirect } from "next/navigation";
 import { createContext, useCallback, useContext, useState } from "react";
 
 import PlayPause from "./PlayPause";
