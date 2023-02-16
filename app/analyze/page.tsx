@@ -10,7 +10,13 @@ export default function Page({
   const blob = searchParams?.blob as string;
 
   if (!blob) {
-    redirect("/");
+    return (
+      <div>No blob
+
+        Blob: {blob}
+        Params: {JSON.stringify(searchParams)}
+      </div>
+    )
   }
 
   return (
