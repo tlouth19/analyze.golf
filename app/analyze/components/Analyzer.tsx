@@ -1,6 +1,6 @@
 "use client";
 
-// import { useSearchParams, redirect } from "next/navigation";
+import { useSearchParams, redirect } from "next/navigation";
 import { createContext, useCallback, useContext, useState } from "react";
 
 import PlayPause from "./PlayPause";
@@ -25,11 +25,8 @@ export function usePlayer() {
   return videoContext.player;
 }
 
-interface AnalyzerProps {
-  blob: string
-}
-
-export default function Analyzer(props: AnalyzerProps) {
+export default function Analyzer() {
+  const params = useSearchParams();
   const [player, setPlayer] = useState<HTMLVideoElement>();
   const videoRef = useCallback((node: HTMLVideoElement) => {
     if (node) {
@@ -37,6 +34,11 @@ export default function Analyzer(props: AnalyzerProps) {
     }
   }, []);
 
+  const blob = params.get("blob");
+
+  if (!blob) {
+    redirect("/");
+  }
 
   return (
     <>
@@ -53,7 +55,7 @@ export default function Analyzer(props: AnalyzerProps) {
         {player && <DrawTools />}
         <video
           ref={videoRef}
-          src={props.blob}
+          src={blob}
           loop
           muted={true}
           autoPlay

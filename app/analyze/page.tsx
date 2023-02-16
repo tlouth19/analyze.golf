@@ -4,22 +4,13 @@ import Analyzer from "./components/Analyzer";
 
 export default function page({
   searchParams,
-  params,
 }: {
-  params: any,
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const blob = searchParams?.blob as string;
 
   if (!blob) {
-    return (
-      <div>No blob
-
-        Blob: {blob}
-        sParams: {JSON.stringify(searchParams)}
-        p: {JSON.stringify(params)}
-      </div>
-    )
+   redirect('/')
   }
 
   return (
