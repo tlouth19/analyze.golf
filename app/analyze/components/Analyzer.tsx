@@ -53,7 +53,7 @@ export default function Analyzer(props: AnalyzerProps) {
         {player && <DrawTools />}
         <video
           ref={videoRef}
-          src={blob}
+          src={props.blob}
           loop
           muted={true}
           autoPlay
