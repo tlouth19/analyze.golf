@@ -37,7 +37,8 @@ export default function Analyzer() {
   const blob = params.get("blob");
 
   if (!blob) {
-    redirect("/");
+    console.log('this redirect')
+    // redirect("/");
   }
 
   return (
