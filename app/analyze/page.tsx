@@ -5,7 +5,7 @@ import Analyzer from "./components/Analyzer";
 export default function Page({
   searchParams,
 }: {
-  searchParams?: { [key: string]: string | string[] | undefined | null };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const blob = searchParams?.blob as string;
 
