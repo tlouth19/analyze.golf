@@ -37,7 +37,6 @@ export default function Analyzer() {
   const blob = params.get("blob");
 
   if (!blob) {
-    console.log(blob)
     console.log('this redirect')
     return <div>no blob</div>
     // redirect("/");
