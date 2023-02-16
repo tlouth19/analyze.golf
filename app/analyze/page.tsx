@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 
 import Analyzer from "./components/Analyzer";
 
-export default function Page({
+export default function page({
   searchParams,
   params,
 }: {
@@ -24,7 +24,7 @@ export default function Page({
 
   return (
     <div className="bg-black h-screen w-screen relative flex justify-center items-stretch">
-      <Analyzer />
+      <Analyzer blob={blob}/>
     </div>
   );
 }

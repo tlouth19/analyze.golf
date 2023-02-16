@@ -25,8 +25,11 @@ export function usePlayer() {
   return videoContext.player;
 }
 
-export default function Analyzer() {
-  const params = useSearchParams();
+interface AnalyzerProps {
+  blob: string
+}
+
+export default function Analyzer(props: AnalyzerProps) {
   const [player, setPlayer] = useState<HTMLVideoElement>();
   const videoRef = useCallback((node: HTMLVideoElement) => {
     if (node) {
@@ -34,11 +37,6 @@ export default function Analyzer() {
     }
   }, []);
 
-  const blob = params.get("blob");
-
-  if (!blob) {
-    redirect("/");
-  }
 
   return (
     <>
