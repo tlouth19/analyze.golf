@@ -12,7 +12,6 @@ export default function SelectFile() {
   function handleOpenFile() {
     if (inputRef.current) {
       inputRef.current.click();
-      setIsSubmitting(true);
     }
   }
 
@@ -20,14 +19,16 @@ export default function SelectFile() {
     try {
       const target = e.target as HTMLInputElement;
       const files = target.files;
-      if (files?.[0]) {
+      if (files && files.length > 0) {
         const blob = URL.createObjectURL(files[0]);
+        setIsSubmitting(true);
         router.push(`/analyze?blob=${encodeURIComponent(blob)}`);
-      }
+      } 
     } catch (err) {
       setIsSubmitting(false);
     }
   }
+
 
   return (
     <>

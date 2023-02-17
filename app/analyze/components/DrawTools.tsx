@@ -1,26 +1,29 @@
-import { useState } from "react";
+'use client'
+
+import {  useState } from "react";
+import dynamic from "next/dynamic";
+import { TbWaveSine } from 'react-icons/tb'
 import { BsFillPencilFill, BsSlashLg, BsCircle } from "react-icons/bs";
 import * as Separator from "@radix-ui/react-separator";
 import * as Popover from "@radix-ui/react-popover";
 
+import { DrawTypeEnum, DrawColorEnum } from "@/enums";
 import { usePlayer } from "./Analyzer";
 
-const enum DrawTypeEnum {
-  LINE = "line",
-  CIRCLE = "circle",
-}
 
-const enum DrawColorEnum {
-  WHITE = "#ffffff",
-  GREEN = "#008400",
-  RED = "#840026",
-  BLUE = "#140084",
-  ORANGE = "#843500",
+export interface Shape {
+  key: string;
+  drawColor: DrawColorEnum;
+  drawType: DrawTypeEnum;
+  points: number[];
+  width?: number;
+  height?: number;
 }
 
 const drawTypes = [
   { type: DrawTypeEnum.LINE, icon: <BsSlashLg /> },
   { type: DrawTypeEnum.CIRCLE, icon: <BsCircle /> },
+  {type: DrawTypeEnum.FREE, icon: <TbWaveSine/>}
 ];
 
 const drawColors = [
@@ -31,10 +34,15 @@ const drawColors = [
   DrawColorEnum.ORANGE,
 ];
 
+const Draw = dynamic(() => import('./Draw'), {
+  ssr: false
+})
+
 export default function DrawTools() {
   const player = usePlayer();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
+  const [shapes, setShapes] = useState<Shape[]>([])
   const [drawType, setDrawType] = useState<DrawTypeEnum>(DrawTypeEnum.LINE);
   const [drawColor, setDrawColor] = useState<DrawColorEnum>(
     DrawColorEnum.WHITE
@@ -102,6 +110,8 @@ export default function DrawTools() {
           </Popover.Portal>
         </Popover.Root>
       </div>
+      <Draw drawColor={drawColor} drawType={drawType}shapes={shapes} setShapes={setShapes}/>
     </>
   );
 }
+

@@ -61,7 +61,7 @@ export default function Analyzer() {
           autoPlay
           playsInline
           data-flipped="false"
-          className="block max-h-full max-w-full h-full mx-auto"
+          className="block max-h-full max-w-full h-full mx-auto pointer-events-none"
         />
         <div className="absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-1 z-[2]">
           {player && (
