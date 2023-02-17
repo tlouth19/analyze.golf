@@ -5,7 +5,7 @@ import SelectFile from "./components/SelectFile";
 export default function Home() {
   return (
     <>
-      <header className="flex items-center justify-between gap-2 max-w-6xl mx-auto px-2 h-[120px]">
+      <header className="flex items-center justify-between gap-2 max-w-6xl mx-auto px-4 h-[60px] sm:h-[120px]">
         <svg className="w-44 md:w-52" viewBox="0 0 512 86">
           <title>Analyze.Golf Logo</title>
           <path
@@ -40,7 +40,7 @@ export default function Home() {
           </a>
         </div>
       </header>
-      <section className="max-w-6xl mx-auto px-2 h-[calc(100vh-180px)] min-h-[500px] flex items-center justify-center">
+      <section className="max-w-6xl mx-auto px-4 h-[calc(100vh-120px)] sm:h-[calc(100vh-180px)] min-h-[500px] flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold uppercase mb-1">
             Free Golf Swing Analyzer
@@ -50,9 +50,9 @@ export default function Home() {
           </p>
           <SelectFile />
         </div>
-      </section>
-      <footer className="text-center text-sm max-w-6xl mx-auto px-2 h-[60px]">
-        <p className="max-w-sm mx-auto">
+      </section> 
+      <footer className="text-center text-xs px-4 h-[60px] flex items-center justify-center">
+        <p >
           Built with{" "}
           <a
             href="https://reactjs.org/"
@@ -89,7 +89,7 @@ export default function Home() {
           >
             Tyson Louth
           </a>
-          . View this project on{" "}
+          . <br/>View this project on{" "}
           <a
             href="https://github.com/tlouth19/analyze.golf"
             target="_blank"

@@ -1,11 +1,12 @@
 "use client";
-
+import { useState } from "react";
 import Konva from "konva";
 import { Stage, Layer, Circle, Line } from "react-konva";
-import { useWindowSize } from "rooks";
+import { useBoundingclientrectRef, useWindowSize } from "rooks";
 
 import { DrawTypeEnum, DrawColorEnum } from "@/enums";
 import { Shape } from "./DrawTools";
+import { useEffect, useRef } from "react";
 
 interface DrawProps {
   drawColor: DrawColorEnum;
@@ -17,8 +18,21 @@ interface DrawProps {
 }
 
 export default function Draw(props: DrawProps) {
-  const { innerWidth, innerHeight } = useWindowSize();
+  const windowSize =useWindowSize()
+  const [containerRef, clientRect, updateClientRect] = useBoundingclientrectRef()
+  const [scale, setScale] = useState<number>(1)
   
+console.log(clientRect)
+  useEffect(() => {
+    updateClientRect()
+  }, [windowSize, updateClientRect])
+
+  useEffect(() => {
+    if (clientRect) {
+      const containerWidth = clientRect.width
+      // const scale = 
+    }
+  }, [clientRect, containerRef])
 
   function handleMouseDown(event: Konva.KonvaEventObject<MouseEvent>) {
     props.setIsDrawing(true)
@@ -171,13 +185,15 @@ export default function Draw(props: DrawProps) {
   }
 
   return (
-    <Stage
+   <div className="absolute inset-0" ref={containerRef}>
+     <Stage
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseMove={handleMouseMove}
-      width={innerWidth || 0}
-      height={innerHeight || 0}
+      width={clientRect?.width || 0}
+      height={clientRect?.height || 0}
       className="absolute inset-0 bg-red-900 bg-opacity-50"
+      scale={{x: scale, y: scale}}
     >
       <Layer>
         {props.shapes.map((shape) => {
@@ -219,5 +235,6 @@ export default function Draw(props: DrawProps) {
         })}
       </Layer>
     </Stage>
+   </div>
   );
 }
