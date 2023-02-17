@@ -23,12 +23,11 @@ export default function SelectFile() {
         const blob = URL.createObjectURL(files[0]);
         setIsSubmitting(true);
         router.push(`/analyze?blob=${encodeURIComponent(blob)}`);
-      } 
+      }
     } catch (err) {
       setIsSubmitting(false);
     }
   }
-
 
   return (
     <>

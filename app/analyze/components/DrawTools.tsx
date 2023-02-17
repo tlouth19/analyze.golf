@@ -1,14 +1,24 @@
-'use client'
+"use client";
 
-import {  useState } from "react";
+import { useState } from "react";
 import dynamic from "next/dynamic";
-import { TbWaveSine } from 'react-icons/tb'
-import { BsFillPencilFill, BsSlashLg, BsCircle } from "react-icons/bs";
+import { TbWaveSine } from "react-icons/tb";
+import {
+  BsFillPencilFill,
+  BsSlashLg,
+  BsCircle,
+  BsArrowCounterclockwise,
+  BsEraser,
+} from "react-icons/bs";
 import * as Separator from "@radix-ui/react-separator";
 import * as Popover from "@radix-ui/react-popover";
 
 import { DrawTypeEnum, DrawColorEnum } from "@/enums";
 import { usePlayer } from "./Analyzer";
+
+const Draw = dynamic(() => import("./Draw"), {
+  ssr: false,
+});
 
 
 export interface Shape {
@@ -23,7 +33,7 @@ export interface Shape {
 const drawTypes = [
   { type: DrawTypeEnum.LINE, icon: <BsSlashLg /> },
   { type: DrawTypeEnum.CIRCLE, icon: <BsCircle /> },
-  {type: DrawTypeEnum.FREE, icon: <TbWaveSine/>}
+  { type: DrawTypeEnum.FREE, icon: <TbWaveSine /> },
 ];
 
 const drawColors = [
@@ -34,15 +44,12 @@ const drawColors = [
   DrawColorEnum.ORANGE,
 ];
 
-const Draw = dynamic(() => import('./Draw'), {
-  ssr: false
-})
 
 export default function DrawTools() {
   const player = usePlayer();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
-  const [shapes, setShapes] = useState<Shape[]>([])
+  const [shapes, setShapes] = useState<Shape[]>([]);
   const [drawType, setDrawType] = useState<DrawTypeEnum>(DrawTypeEnum.LINE);
   const [drawColor, setDrawColor] = useState<DrawColorEnum>(
     DrawColorEnum.WHITE
@@ -58,6 +65,16 @@ export default function DrawTools() {
 
   function handleOpenChange(open: boolean) {
     setIsOpen(open);
+  }
+
+  function handleUndo() {
+    const clonedShapes = [...shapes] as Shape[];
+    clonedShapes.pop();
+    setShapes([...clonedShapes]);
+  }
+
+  function handleErase() {
+    setShapes([]);
   }
 
   return (
@@ -105,13 +122,40 @@ export default function DrawTools() {
                   />
                 </button>
               ))}
+              {shapes.length > 0 && (
+                <>
+                  <Separator.Root className="h-[1px] w-full my-1 bg-current" />
+                  <button
+                    type="button"
+                    onClick={handleUndo}
+                    aria-label={`Erase last drawn shape`}
+                    className="block text-center py-2 px-4"
+                  >
+                    <BsArrowCounterclockwise />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleErase}
+                    aria-label="Erase all shapes`"
+                    className="block text-center py-2 px-4"
+                  >
+                    <BsEraser />
+                  </button>
+                </>
+              )}
               <Popover.Arrow className="fill-black" />
             </Popover.Content>
           </Popover.Portal>
         </Popover.Root>
       </div>
-      <Draw drawColor={drawColor} drawType={drawType}shapes={shapes} setShapes={setShapes}/>
+      <Draw
+        drawColor={drawColor}
+        drawType={drawType}
+        shapes={shapes}
+        setShapes={setShapes}
+        isDrawing={isDrawing}
+        setIsDrawing={setIsDrawing}
+      />
     </>
   );
 }
-

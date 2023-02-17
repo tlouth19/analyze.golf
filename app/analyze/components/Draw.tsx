@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef } from "react";
 import Konva from "konva";
 import { Stage, Layer, Circle, Line } from "react-konva";
 import { useWindowSize } from "rooks";
@@ -11,18 +10,18 @@ import { Shape } from "./DrawTools";
 interface DrawProps {
   drawColor: DrawColorEnum;
   drawType: DrawTypeEnum;
-  shapes: Shape[],
-  setShapes: Function
+  shapes: Shape[];
+  setShapes: Function;
+  isDrawing: boolean;
+  setIsDrawing: Function
 }
-
-
 
 export default function Draw(props: DrawProps) {
   const { innerWidth, innerHeight } = useWindowSize();
-  const isDrawing = useRef<boolean>(false);
+  
 
   function handleMouseDown(event: Konva.KonvaEventObject<MouseEvent>) {
-    isDrawing.current = true;
+    props.setIsDrawing(true)
 
     switch (props.drawType) {
       case DrawTypeEnum.FREE:
@@ -37,7 +36,7 @@ export default function Draw(props: DrawProps) {
   }
 
   function handleMouseMove(event: Konva.KonvaEventObject<MouseEvent>) {
-    if (!isDrawing.current) {
+    if (!props.isDrawing) {
       return;
     }
 
@@ -54,7 +53,7 @@ export default function Draw(props: DrawProps) {
   }
 
   function handleMouseUp() {
-    isDrawing.current = false;
+    props.setIsDrawing(false)
   }
 
   function handleFreeMouseDown(event: Konva.KonvaEventObject<MouseEvent>) {
