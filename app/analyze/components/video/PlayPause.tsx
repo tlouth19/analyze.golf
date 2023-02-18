@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
-import { usePlayer } from "./Analyzer";
+import { useAnalyzer } from "app/context";
 
 const playLabel = "Play video";
 const pauseLabel = "Pause video";
 
 export default function PlayPause() {
-  const player = usePlayer();
+  const { player } = useAnalyzer();
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {

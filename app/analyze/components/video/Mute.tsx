@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { BsFillVolumeMuteFill, BsFillVolumeDownFill } from "react-icons/bs";
 
-import { usePlayer } from "./Analyzer";
+import { useAnalyzer } from "app/context";
 
 const mutedLabel = "Unmute video";
 const label = "Mute video";
 
 export default function Mute() {
-  const player = usePlayer();
+  const { player } = useAnalyzer();
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {

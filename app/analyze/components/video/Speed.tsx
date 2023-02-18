@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { BsSpeedometer } from "react-icons/bs";
 import * as Popover from "@radix-ui/react-popover";
 
-import { usePlayer } from "./Analyzer";
+import { useAnalyzer } from "app/context";
 
 const enum SpeedEnum {
   SLOW4 = 0.1,
@@ -27,7 +27,7 @@ const playbackRates = [
 ];
 
 export default function Speed() {
-  const player = usePlayer();
+  const { player } = useAnalyzer();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [speed, setSpeed] = useState<SpeedEnum>(SpeedEnum.NORMAL);
 

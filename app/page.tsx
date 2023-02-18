@@ -50,9 +50,9 @@ export default function Home() {
           </p>
           <SelectFile />
         </div>
-      </section> 
+      </section>
       <footer className="text-center text-xs px-4 h-[60px] flex items-center justify-center">
-        <p >
+        <p>
           Built with{" "}
           <a
             href="https://reactjs.org/"
@@ -89,7 +89,8 @@ export default function Home() {
           >
             Tyson Louth
           </a>
-          . <br/>View this project on{" "}
+          . <br />
+          View this project on{" "}
           <a
             href="https://github.com/tlouth19/analyze.golf"
             target="_blank"

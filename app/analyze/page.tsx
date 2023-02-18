@@ -14,9 +14,9 @@ export default function page({
   }
 
   return (
-    <div className="bg-black h-screen w-screen relative flex justify-center items-stretch">
+    <div className="bg-black h-screen w-screen flex justify-center items-stretch">
       <div className="h-full relative flex items-stretch justify-center">
-      <Analyzer />
+        <Analyzer />
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import { BsArrowLeftRight } from "react-icons/bs";
-import { usePlayer } from "./Analyzer";
+import { useAnalyzer } from "app/context";
 
 const label = "Flip video horizontally";
 
 export default function Flip() {
-  const player = usePlayer();
+  const { player } = useAnalyzer();
 
   function handleFlip() {
     const isFlipped = player.getAttribute("data-flipped");

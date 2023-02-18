@@ -1,11 +1,11 @@
 import { BsFillSkipForwardFill, BsFillSkipBackwardFill } from "react-icons/bs";
-import { usePlayer } from "./Analyzer";
+import { useAnalyzer } from "app/context";
 
 const skipBackLabel = "Skip back";
 const skipForwardLabel = "Skip forward";
 
 export default function Skip() {
-  const player = usePlayer();
+  const { player } = useAnalyzer();
 
   function handleSkipForward() {
     player.currentTime += 0.05;

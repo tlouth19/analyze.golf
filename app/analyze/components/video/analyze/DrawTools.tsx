@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import dynamic from "next/dynamic";
 import { TbWaveSine } from "react-icons/tb";
 import {
   BsFillPencilFill,
@@ -15,11 +14,9 @@ import * as Popover from "@radix-ui/react-popover";
 
 import { DrawTypeEnum, DrawColorEnum } from "@/enums";
 import classNames from "classnames";
+import { useAnalyzer } from "app/context";
 
-const Draw = dynamic(() => import("./Draw"), {
-  ssr: false,
-});
-
+import Draw from "./Draw";
 
 export interface Shape {
   key: string;
@@ -44,13 +41,8 @@ const drawColors = [
   DrawColorEnum.ORANGE,
 ];
 
-interface DrawToolsProps {
-  isDrawing: boolean;
-  setIsDrawing: Function
-}
-
-
-export default function DrawTools(props: DrawToolsProps) {
+export default function DrawTools() {
+  const { isDrawing } = useAnalyzer();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [shapes, setShapes] = useState<Shape[]>([]);
   const [drawType, setDrawType] = useState<DrawTypeEnum>(DrawTypeEnum.LINE);
@@ -82,7 +74,12 @@ export default function DrawTools(props: DrawToolsProps) {
 
   return (
     <>
-      <div className={classNames('absolute top-0 right-0 grid gap-1 p-2 z-[2]  opacity-100 transition-opacity',  { '!opacity-0 pointer-events-none': props.isDrawing })}>
+      <div
+        className={classNames(
+          "absolute top-0 right-0 grid gap-1 p-2 z-[2]  opacity-100 transition-opacity",
+          { "!opacity-0 pointer-events-none": isDrawing }
+        )}
+      >
         <Popover.Root onOpenChange={handleOpenChange} open={isOpen}>
           <Popover.Trigger asChild>
             <button
@@ -156,8 +153,6 @@ export default function DrawTools(props: DrawToolsProps) {
         drawType={drawType}
         shapes={shapes}
         setShapes={setShapes}
-        isDrawing={props.isDrawing}
-        setIsDrawing={props.setIsDrawing}
       />
     </>
   );

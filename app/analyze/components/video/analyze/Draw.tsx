@@ -7,70 +7,76 @@ import { useBoundingclientrectRef, useWindowSize } from "rooks";
 import { DrawTypeEnum, DrawColorEnum } from "@/enums";
 import { Shape } from "./DrawTools";
 import { useEffect, useRef } from "react";
+import { useAnalyzer } from "@/app/context";
 
 interface DrawProps {
   drawColor: DrawColorEnum;
   drawType: DrawTypeEnum;
   shapes: Shape[];
   setShapes: Function;
-  isDrawing: boolean;
-  setIsDrawing: Function
 }
 
 export default function Draw(props: DrawProps) {
-  const windowSize =useWindowSize()
-  const [containerRef, clientRect, updateClientRect] = useBoundingclientrectRef()
-  const [scale, setScale] = useState<number>(1)
-  
-console.log(clientRect)
+  const windowSize = useWindowSize();
+  const { isDrawing, setIsDrawing } = useAnalyzer();
+  const [containerRef, clientRect, updateClientRect] =
+    useBoundingclientrectRef();
+  const [scale, setScale] = useState<number>(1);
+
   useEffect(() => {
-    updateClientRect()
-  }, [windowSize, updateClientRect])
+    updateClientRect();
+  }, [windowSize, updateClientRect]);
 
   useEffect(() => {
     if (clientRect) {
-      const containerWidth = clientRect.width
-      // const scale = 
+      const containerWidth = clientRect.width;
+      // const scale =
     }
-  }, [clientRect, containerRef])
+  }, [clientRect, containerRef]);
 
-  function handleMouseDown(event: Konva.KonvaEventObject<MouseEvent>) {
-    props.setIsDrawing(true)
+  function handleMouseOrTouchDown(
+    event: Konva.KonvaEventObject<MouseEvent | TouchEvent>
+  ) {
+    setIsDrawing(true);
 
     switch (props.drawType) {
       case DrawTypeEnum.FREE:
-        return handleFreeMouseDown(event);
+        return handleFreeDown(event);
       case DrawTypeEnum.LINE:
-        return handleLineMouseDown(event);
+        return handleLineDown(event);
       case DrawTypeEnum.CIRCLE:
-        return handleCircleMouseDown(event);
+        return handleCircleDown(event);
       default:
         throw Error("Invalid draw type");
     }
   }
 
-  function handleMouseMove(event: Konva.KonvaEventObject<MouseEvent>) {
-    if (!props.isDrawing) {
+  function handleMouseOrTouchMove(
+    event: Konva.KonvaEventObject<MouseEvent | TouchEvent>
+  ) {
+    if (!isDrawing) {
       return;
     }
 
     switch (props.drawType) {
       case DrawTypeEnum.FREE:
-        return handleFreeMouseMove(event);
+        return handleFreeMove(event);
       case DrawTypeEnum.LINE:
-        return handleLineMouseMove(event);
+        return handleLineMove(event);
       case DrawTypeEnum.CIRCLE:
-        return handleCircleMouseMove(event);
+        return handleCircleMove(event);
       default:
         throw Error("Invalid draw type");
     }
   }
 
-  function handleMouseUp() {
-    props.setIsDrawing(false)
+  function handleMouseOrTouchUp() {
+    setIsDrawing(false);
   }
 
-  function handleFreeMouseDown(event: Konva.KonvaEventObject<MouseEvent>) {
+  function handleFreeDown(
+    event: Konva.KonvaEventObject<MouseEvent | TouchEvent>
+  ) {
     const stage = event.target.getStage();
     if (stage) {
       const pointerPosition = stage.getPointerPosition();
@@ -88,7 +94,9 @@ console.log(clientRect)
     }
   }
 
-  function handleFreeMouseMove(event: Konva.KonvaEventObject<MouseEvent>) {
+  function handleFreeMove(
+    event: Konva.KonvaEventObject<MouseEvent | TouchEvent>
+  ) {
     const stage = event.target.getStage();
     if (stage) {
       const pointerPosition = stage.getPointerPosition();
@@ -104,7 +112,9 @@ console.log(clientRect)
     }
   }
 
-  function handleLineMouseDown(event: Konva.KonvaEventObject<MouseEvent>) {
+  function handleLineDown(
+    event: Konva.KonvaEventObject<MouseEvent | TouchEvent>
+  ) {
     const stage = event.target.getStage();
     if (stage) {
       const pointerPosition = stage.getPointerPosition();
@@ -122,7 +132,9 @@ console.log(clientRect)
     }
   }
 
-  function handleLineMouseMove(event: Konva.KonvaEventObject<MouseEvent>) {
+  function handleLineMove(
+    event: Konva.KonvaEventObject<MouseEvent | TouchEvent>
+  ) {
     const stage = event.target.getStage();
     if (stage) {
       const pointerPosition = stage.getPointerPosition();
@@ -140,7 +152,9 @@ console.log(clientRect)
     }
   }
 
-  function handleCircleMouseDown(event: Konva.KonvaEventObject<MouseEvent>) {
+  function handleCircleDown(
+    event: Konva.KonvaEventObject<MouseEvent | TouchEvent>
+  ) {
     const stage = event.target.getStage();
     if (stage) {
       const pointerPosition = stage.getPointerPosition();
@@ -152,15 +166,17 @@ console.log(clientRect)
             drawType: DrawTypeEnum.CIRCLE,
             drawColor: props.drawColor,
             points: [pointerPosition.x, pointerPosition.y],
-            width: 200,
-            height: 200,
+            width: 1,
+            height: 1,
           },
         ]);
       }
     }
   }
 
-  function handleCircleMouseMove(event: Konva.KonvaEventObject<MouseEvent>) {
+  function handleCircleMove(
+    event: Konva.KonvaEventObject<MouseEvent | TouchEvent>
+  ) {
     const stage = event.target.getStage();
     if (stage) {
       const pointerPosition = stage.getPointerPosition();
@@ -175,6 +191,7 @@ console.log(clientRect)
         ]);
         const width = pointerPosition.x - sx;
         const height = pointerPosition.y - sy;
+
         lastLine.width = width > 0 ? width : lastLine.width;
         lastLine.height = height > 0 ? height : lastLine.height;
 
@@ -185,56 +202,53 @@ console.log(clientRect)
   }
 
   return (
-   <div className="absolute inset-0" ref={containerRef}>
-     <Stage
-      onMouseDown={handleMouseDown}
-      onMouseUp={handleMouseUp}
-      onMouseMove={handleMouseMove}
-      width={clientRect?.width || 0}
-      height={clientRect?.height || 0}
-      className="absolute inset-0 bg-red-900 bg-opacity-50"
-      scale={{x: scale, y: scale}}
-    >
-      <Layer>
-        {props.shapes.map((shape) => {
-          switch (shape.drawType) {
-            case DrawTypeEnum.FREE:
-            case DrawTypeEnum.LINE:
-              return (
-                <Line
-                  key={shape.key}
-                  points={shape.points}
-                  stroke={shape.drawColor}
-                  strokeWidth={5}
-                  tension={0.5}
-                  lineCap="round"
-                  lineJoin="round"
-                  globalCompositeOperation="source-over"
-                />
-              );
-            case DrawTypeEnum.CIRCLE:
-              return (
-                <Circle
-                  key={shape.key}
-                  x={shape.points[0]}
-                  y={shape.points[1]}
-                  width={shape.width}
-                  height={shape.height}
-                  stroke={shape.drawColor}
-                  strokeWidth={5}
-                  tension={0.5}
-                  radius={50}
-                  lineCap="round"
-                  lineJoin="round"
-                  globalCompositeOperation="source-over"
-                />
-              );
-            default:
-              throw Error("Invalid draw type");
-          }
-        })}
-      </Layer>
-    </Stage>
-   </div>
+    <div className="absolute inset-0" ref={containerRef}>
+      <Stage
+        onMouseDown={handleMouseOrTouchDown}
+        onMouseUp={handleMouseOrTouchUp}
+        onMouseMove={handleMouseOrTouchMove}
+        onTouchStart={handleMouseOrTouchDown}
+        onTouchMove={handleMouseOrTouchMove}
+        onTouchEnd={handleMouseOrTouchUp}
+        width={clientRect?.width || 0}
+        height={clientRect?.height || 0}
+        className="absolute inset-0 bg-red-900 bg-opacity-50"
+        scale={{ x: scale, y: scale }}
+      >
+        <Layer>
+          {props.shapes.map((shape) => {
+            switch (shape.drawType) {
+              case DrawTypeEnum.FREE:
+              case DrawTypeEnum.LINE:
+                return (
+                  <Line
+                    key={shape.key}
+                    points={shape.points}
+                    stroke={shape.drawColor}
+                    strokeWidth={5}
+                    tension={0.5}
+                  />
+                );
+              case DrawTypeEnum.CIRCLE:
+                return (
+                  <Circle
+                    key={shape.key}
+                    x={shape.points[0]}
+                    y={shape.points[1]}
+                    width={shape.width}
+                    height={shape.height}
+                    stroke={shape.drawColor}
+                    strokeWidth={5}
+                    tension={0.5}
+                    radius={50}
+                  />
+                );
+              default:
+                throw Error("Invalid draw type");
+            }
+          })}
+        </Layer>
+      </Stage>
+    </div>
   );
 }

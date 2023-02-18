@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import * as Slider from "@radix-ui/react-slider";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
-import { usePlayer } from "./Analyzer";
+import { useAnalyzer } from "app/context";
 
 export default function Progress() {
-  const player = usePlayer();
+  const { player } = useAnalyzer();
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
 
