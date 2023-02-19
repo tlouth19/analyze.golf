@@ -10,6 +10,7 @@ import Skip from "./video/Skip";
 import Progress from "./video/Progress";
 import Speed from "./video/Speed";
 import Draw from "./draw/Draw";
+import FullScreen from "./video/FullScreen";
 
 interface Props {
   player: HTMLVideoElement;
@@ -32,6 +33,7 @@ export default function Actions(props: Props) {
         />
         <Muted player={props.player} />
         <Flip player={props.player} />
+        <FullScreen player={props.player} />
       </div>
       <div
         className={classNames(
