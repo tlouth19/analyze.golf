@@ -12,11 +12,16 @@ export default function Mute(props: Props) {
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
-    props.player.onvolumechange = (e) => {
-      const currentTarget = e.currentTarget as HTMLVideoElement;
-      setIsMuted(currentTarget.muted);
+    props.player.addEventListener("volumechange", handleVolumeChange);
+    return () => {
+      props.player.removeEventListener("volumechange", handleVolumeChange);
     };
   }, [props.player]);
+
+  function handleVolumeChange(e: Event) {
+    const currentTarget = e.currentTarget as HTMLVideoElement;
+    setIsMuted(currentTarget.muted);
+  }
 
   function handleMute() {
     props.player.muted = true;

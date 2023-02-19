@@ -61,7 +61,7 @@ export default function DrawColor(props: Props) {
               type="button"
               onClick={() => handleChange(color)}
               aria-label={`Draw with ${color}`}
-              className={classNames("block text-center py-2 px-4 rounded", {
+              className={classNames("block text-center p-2 rounded", {
                 "text-brand-blue bg-white": props.drawColor === color,
               })}
             >

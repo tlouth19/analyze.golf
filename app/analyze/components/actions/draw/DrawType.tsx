@@ -56,7 +56,7 @@ export default function DrawType(props: Props) {
               type="button"
               onClick={() => handleChange(type.type)}
               aria-label={`Draw with ${type.type}`}
-              className={classNames("block text-center py-2 px-4 rounded", {
+              className={classNames("block text-center p-2 rounded", {
                 "text-brand-blue bg-white": props.drawType === type.type,
               })}
             >
