@@ -51,7 +51,7 @@ export default function Home() {
           <SelectFile />
         </div>
       </section>
-      <footer className="flex items-center justify-center gap-2 mx-auto px-4 py-6 w-full text-center">
+      <footer className="flex items-center justify-center gap-2 mx-auto px-4 py-2 sm:py-4 w-full text-center">
         <p className="text-xs">
           Built with{" "}
           <a

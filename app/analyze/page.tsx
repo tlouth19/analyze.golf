@@ -15,7 +15,7 @@ export default function page({
 
   return (
     <div className="absolute inset-0">
-      <div className="h-full relative flex items-stretch justify-center">
+      <div className="h-full relative flex items-stretch justify-center text-white">
         <Analyzer />
       </div>
     </div>

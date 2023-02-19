@@ -33,7 +33,16 @@ export default function Head() {
       <link rel="manifest" href="/site.webmanifest" />
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0788DE" />
       <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#0788DE"></meta>
+      <meta
+        name="theme-color"
+        content="#ffffff"
+        media="(prefers-color-scheme: light)"
+      />
+      <meta
+        name="theme-color"
+        content="#000000"
+        media="(prefers-color-scheme: dark)"
+      />
 
       <meta name="og:url" content="https://analyze.golf" />
       <meta name="og:type" content="website" />

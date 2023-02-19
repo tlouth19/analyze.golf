@@ -82,7 +82,7 @@ export default function DrawTools(props: Props) {
     <>
       <div
         className={classNames(
-          "absolute top-0 right-0 grid gap-1 p-2 z-[2]  opacity-100 transition-opacity",
+          "absolute top-0 right-0 grid gap-1 p-2 z-[2]  opacity-100 transition-opacity ",
           { "!opacity-0 pointer-events-none": props.isDrawing }
         )}
       >
@@ -100,7 +100,7 @@ export default function DrawTools(props: Props) {
             </button>
           </Popover.Trigger>
           <Popover.Portal>
-            <Popover.Content className="py-2 bg-black shadow rounded duration-300 ease-in-out will-change-auto grid gap-2">
+            <Popover.Content className="py-2 bg-black shadow rounded duration-300 ease-in-out will-change-auto grid gap-2 text-white">
               {drawTypes.map((type) => (
                 <button
                   key={type.type}

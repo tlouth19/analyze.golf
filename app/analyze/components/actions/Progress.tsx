@@ -99,7 +99,7 @@ export default function Progress(props: Props) {
             <Tooltip.Portal>
               <Tooltip.Content
                 className={classNames(
-                  "bg-black rounded text-white p-1 text-xs z-[100]",
+                  "bg-black rounded  p-1 text-xs z-[100] text-white",
                   { "opacity-0": props.isDrawing }
                 )}
               >

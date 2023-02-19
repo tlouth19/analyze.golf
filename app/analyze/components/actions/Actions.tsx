@@ -20,7 +20,7 @@ export default function Actions(props: Props) {
     <>
       <div
         className={classNames(
-          "absolute top-0 left-0 grid gap-1 p-2 z-[2] opacity-100 transition-opacity",
+          "absolute top-0 left-0 grid gap-1 p-2 z-[2] opacity-100 transition-opacity ",
           { "!opacity-0 pointer-events-none": isDrawing }
         )}
       >
@@ -30,7 +30,7 @@ export default function Actions(props: Props) {
       </div>
       <div
         className={classNames(
-          "absolute bottom-0 left-0 right-0 text-white p-2 flex items-center gap-1 z-[2] opacity-100 transition-opacity",
+          "absolute bottom-0 left-0 right-0  p-2 flex items-center gap-1 z-[2] opacity-100 transition-opacity",
           { "!opacity-0 pointer-events-none": isDrawing }
         )}
       >

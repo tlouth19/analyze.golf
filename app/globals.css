@@ -2,14 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  min-height: 100vh;
-  min-height: stretch;
-  min-height: -webkit-fill-available;
+:root {
+  --doc-height: 100%;
 }
-html {
-  height: stretch;
-  height: -webkit-fill-available;
+
+html,
+body {
+  height: 100vh;
+  height: var(--doc-height);
 }
 
 html,
