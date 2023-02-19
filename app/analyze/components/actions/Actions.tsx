@@ -9,7 +9,7 @@ import Flip from "./video/Flip";
 import Skip from "./video/Skip";
 import Progress from "./video/Progress";
 import Speed from "./video/Speed";
-import DrawTools from "./draw/DrawTools";
+import Draw from "./draw/Draw";
 
 interface Props {
   player: HTMLVideoElement;
@@ -44,7 +44,7 @@ export default function Actions(props: Props) {
         <Skip player={props.player} />
         <Speed player={props.player} />
       </div>
-      <DrawTools isDrawing={isDrawing} setIsDrawing={setIsDrawing} />
+      <Draw isDrawing={isDrawing} setIsDrawing={setIsDrawing} />
     </>
   );
 }
