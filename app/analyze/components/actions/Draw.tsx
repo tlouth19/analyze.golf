@@ -212,7 +212,7 @@ export default function Draw(props: DrawProps) {
         onTouchEnd={handleMouseOrTouchUp}
         width={clientRect?.width || 0}
         height={clientRect?.height || 0}
-        className="absolute inset-0 bg-red-900 bg-opacity-50"
+        className="absolute inset-0"
         scale={{ x: scale, y: scale }}
       >
         <Layer>

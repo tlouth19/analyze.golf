@@ -48,7 +48,7 @@ interface Props {
 export default function DrawTools(props: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [shapes, setShapes] = useState<Shape[]>([]);
-  const [drawType, setDrawType] = useState<DrawTypeEnum>(DrawTypeEnum.LINE);
+  const [drawType, setDrawType] = useState<DrawTypeEnum>();
   const [drawColor, setDrawColor] = useState<DrawColorEnum>(
     DrawColorEnum.WHITE
   );
