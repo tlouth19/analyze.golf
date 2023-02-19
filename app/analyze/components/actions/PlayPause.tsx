@@ -2,26 +2,28 @@
 
 import { useEffect, useState } from "react";
 import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
-import { useAnalyzer } from "app/context";
 
 const playLabel = "Play video";
 const pauseLabel = "Pause video";
 
-export default function PlayPause() {
-  const { player } = useAnalyzer();
+interface Props {
+  player: HTMLVideoElement;
+}
+
+export default function PlayPause(props: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    player.onplay = () => setIsPlaying(true);
-    player.onpause = () => setIsPlaying(false);
-  }, [player]);
+    props.player.onplay = () => setIsPlaying(true);
+    props.player.onpause = () => setIsPlaying(false);
+  }, [props.player]);
 
   function handlePause() {
-    player.pause();
+    props.player.pause();
   }
 
   async function handlePlay() {
-    player.play();
+    props.player.play();
   }
 
   if (isPlaying) {
@@ -32,7 +34,6 @@ export default function PlayPause() {
         onClick={handlePause}
         aria-label={pauseLabel}
         title={pauseLabel}
-        disabled={!player}
       >
         <BsFillPauseFill />
       </button>
@@ -46,7 +47,6 @@ export default function PlayPause() {
       onClick={handlePlay}
       aria-label={playLabel}
       title={playLabel}
-      disabled={!player}
     >
       <BsFillPlayFill />
     </button>

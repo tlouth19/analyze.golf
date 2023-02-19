@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  min-height: 100vh;
+  min-height: stretch;
+  min-height: -webkit-fill-available;
+}
+html {
+  height: stretch;
+  height: -webkit-fill-available;
+}
+
+html,
+body {
+  overscroll-behavior: contain;
+  touch-action: none;
+}
+
 .btn-action {
   @apply border border-white rounded h-[32px] w-[32px] min-h-[32px] min-w-[32px] sm:h-[42px] sm:w-[42px] sm:min-h-[42px] sm:min-w-[42px] inline-flex items-center justify-center text-lg sm:text-2xl bg-black bg-opacity-25 hover:bg-opacity-50 transition-all;
 }

@@ -14,7 +14,7 @@ export default function page({
   }
 
   return (
-    <div className="bg-black h-screen w-screen flex justify-center items-stretch">
+    <div className="absolute inset-0">
       <div className="h-full relative flex items-stretch justify-center">
         <Analyzer />
       </div>

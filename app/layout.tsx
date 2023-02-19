@@ -15,7 +15,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className="antialiased text-gray-800 dark:text-gray-300 dark:bg-black bg-white">
+      <body className="antialiased text-gray-800 dark:text-gray-300 dark:bg-black bg-white w-full flex flex-col items-stretch">
         {children}
       </body>
     </html>

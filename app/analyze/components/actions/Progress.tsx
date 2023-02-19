@@ -1,37 +1,40 @@
 import { useEffect, useState } from "react";
 import * as Slider from "@radix-ui/react-slider";
 import * as Tooltip from "@radix-ui/react-tooltip";
+import classNames from "classnames";
 
-import { useAnalyzer } from "app/context";
+interface Props {
+  player: HTMLVideoElement;
+  isDrawing: boolean;
+}
 
-export default function Progress() {
-  const { player } = useAnalyzer();
+export default function Progress(props: Props) {
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
 
   useEffect(() => {
-    player.onloadeddata = function (e: Event) {
+    props.player.onloadeddata = function (e: Event) {
       const currentTarget = e.currentTarget as HTMLVideoElement;
       setDuration(currentTarget.duration);
     };
-    player.ondurationchange = function (e: Event) {
+    props.player.ondurationchange = function (e: Event) {
       const currentTarget = e.currentTarget as HTMLVideoElement;
       setDuration(currentTarget.duration);
     };
-    player.ontimeupdate = function (e: Event) {
+    props.player.ontimeupdate = function (e: Event) {
       const currentTarget = e.currentTarget as HTMLVideoElement;
       setCurrentTime(currentTarget.currentTime);
       setDuration(currentTarget.duration);
     };
-  }, [player]);
+  }, [props.player]);
 
   function handleChange(values: Array<number>) {
-    player.pause();
-    player.currentTime = values[0];
+    props.player.pause();
+    props.player.currentTime = values[0];
   }
 
   function handleCommit() {
-    player.play();
+    props.player.play();
   }
 
   return (
@@ -55,7 +58,12 @@ export default function Progress() {
               <Slider.Thumb className="block w-6 border border-blue-800 h-6 shadow rounded-full focus:shadow-lg bg-brand-blue " />
             </Tooltip.Trigger>
             <Tooltip.Portal>
-              <Tooltip.Content className="bg-black rounded text-white p-1 text-xs z-[100]">
+              <Tooltip.Content
+                className={classNames(
+                  "bg-black rounded text-white p-1 text-xs z-[100]",
+                  { "opacity-0": props.isDrawing }
+                )}
+              >
                 <Tooltip.Arrow />
                 {currentTime.toFixed(2)}
               </Tooltip.Content>

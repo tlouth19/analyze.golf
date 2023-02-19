@@ -1,18 +1,19 @@
 import { BsFillSkipForwardFill, BsFillSkipBackwardFill } from "react-icons/bs";
-import { useAnalyzer } from "app/context";
 
 const skipBackLabel = "Skip back";
 const skipForwardLabel = "Skip forward";
 
-export default function Skip() {
-  const { player } = useAnalyzer();
+interface Props {
+  player: HTMLVideoElement;
+}
 
+export default function Skip(props: Props) {
   function handleSkipForward() {
-    player.currentTime += 0.05;
+    props.player.currentTime += 0.05;
   }
 
   function handleSkipBackward() {
-    player.currentTime -= 0.05;
+    props.player.currentTime -= 0.05;
   }
 
   return (
@@ -23,7 +24,6 @@ export default function Skip() {
         onClick={handleSkipBackward}
         aria-label={skipBackLabel}
         title={skipBackLabel}
-        disabled={!player}
       >
         <BsFillSkipBackwardFill />
       </button>
@@ -33,7 +33,6 @@ export default function Skip() {
         onClick={handleSkipForward}
         aria-label={skipForwardLabel}
         title={skipForwardLabel}
-        disabled={!player}
       >
         <BsFillSkipForwardFill />
       </button>

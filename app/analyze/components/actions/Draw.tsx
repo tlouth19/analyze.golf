@@ -7,18 +7,18 @@ import { useBoundingclientrectRef, useWindowSize } from "rooks";
 import { DrawTypeEnum, DrawColorEnum } from "@/enums";
 import { Shape } from "./DrawTools";
 import { useEffect, useRef } from "react";
-import { useAnalyzer } from "@/app/context";
 
 interface DrawProps {
   drawColor: DrawColorEnum;
   drawType: DrawTypeEnum;
   shapes: Shape[];
   setShapes: Function;
+  isDrawing: boolean;
+  setIsDrawing: Function;
 }
 
 export default function Draw(props: DrawProps) {
   const windowSize = useWindowSize();
-  const { isDrawing, setIsDrawing } = useAnalyzer();
   const [containerRef, clientRect, updateClientRect] =
     useBoundingclientrectRef();
   const [scale, setScale] = useState<number>(1);
@@ -37,7 +37,7 @@ export default function Draw(props: DrawProps) {
   function handleMouseOrTouchDown(
     event: Konva.KonvaEventObject<MouseEvent | TouchEvent>
   ) {
-    setIsDrawing(true);
+    props.setIsDrawing(true);
 
     switch (props.drawType) {
       case DrawTypeEnum.FREE:
@@ -54,7 +54,7 @@ export default function Draw(props: DrawProps) {
   function handleMouseOrTouchMove(
     event: Konva.KonvaEventObject<MouseEvent | TouchEvent>
   ) {
-    if (!isDrawing) {
+    if (!props.isDrawing) {
       return;
     }
 
@@ -71,7 +71,7 @@ export default function Draw(props: DrawProps) {
   }
 
   function handleMouseOrTouchUp() {
-    setIsDrawing(false);
+    props.setIsDrawing(false);
   }
 
   function handleFreeDown(

@@ -4,7 +4,7 @@ import { useSearchParams, redirect } from "next/navigation";
 import { useCallback, useState } from "react";
 import dynamic from "next/dynamic";
 
-const Actions = dynamic(() => import("./video/Actions"), {
+const Actions = dynamic(() => import("./actions/Actions"), {
   ssr: false,
 });
 

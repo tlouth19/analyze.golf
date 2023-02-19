@@ -1,8 +1,6 @@
 import { useState } from "react";
 import classNames from "classnames";
 
-import { VideoContext } from "app/context";
-
 import PlayPause from "./PlayPause";
 import Close from "./Close";
 import Muted from "./Mute";
@@ -10,18 +8,16 @@ import Flip from "./Flip";
 import Skip from "./Skip";
 import Progress from "./Progress";
 import Speed from "./Speed";
-import DrawTools from "./analyze/DrawTools";
+import DrawTools from "./DrawTools";
 
-interface ActionsProps {
+interface Props {
   player: HTMLVideoElement;
 }
 
-export default function Actions(props: ActionsProps) {
+export default function Actions(props: Props) {
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
   return (
-    <VideoContext.Provider
-      value={{ player: props.player, isDrawing, setIsDrawing }}
-    >
+    <>
       <div
         className={classNames(
           "absolute top-0 left-0 grid gap-1 p-2 z-[2] opacity-100 transition-opacity",
@@ -29,8 +25,8 @@ export default function Actions(props: ActionsProps) {
         )}
       >
         <Close />
-        <Muted />
-        <Flip />
+        <Muted player={props.player} />
+        <Flip player={props.player} />
       </div>
       <div
         className={classNames(
@@ -38,12 +34,12 @@ export default function Actions(props: ActionsProps) {
           { "!opacity-0 pointer-events-none": isDrawing }
         )}
       >
-        <PlayPause />
-        <Progress />
-        <Skip />
-        <Speed />
+        <PlayPause player={props.player} />
+        <Progress player={props.player} isDrawing={isDrawing} />
+        <Skip player={props.player} />
+        <Speed player={props.player} />
       </div>
-      <DrawTools />
-    </VideoContext.Provider>
+      <DrawTools isDrawing={isDrawing} setIsDrawing={setIsDrawing} />
+    </>
   );
 }

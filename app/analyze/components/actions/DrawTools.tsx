@@ -14,7 +14,6 @@ import * as Popover from "@radix-ui/react-popover";
 
 import { DrawTypeEnum, DrawColorEnum } from "@/enums";
 import classNames from "classnames";
-import { useAnalyzer } from "app/context";
 
 import Draw from "./Draw";
 
@@ -41,8 +40,12 @@ const drawColors = [
   DrawColorEnum.ORANGE,
 ];
 
-export default function DrawTools() {
-  const { isDrawing } = useAnalyzer();
+interface Props {
+  isDrawing: boolean;
+  setIsDrawing: Function;
+}
+
+export default function DrawTools(props: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [shapes, setShapes] = useState<Shape[]>([]);
   const [drawType, setDrawType] = useState<DrawTypeEnum>(DrawTypeEnum.LINE);
@@ -77,10 +80,13 @@ export default function DrawTools() {
       <div
         className={classNames(
           "absolute top-0 right-0 grid gap-1 p-2 z-[2]  opacity-100 transition-opacity",
-          { "!opacity-0 pointer-events-none": isDrawing }
+          { "!opacity-0 pointer-events-none": props.isDrawing }
         )}
       >
-        <Popover.Root onOpenChange={handleOpenChange} open={isOpen}>
+        <Popover.Root
+          onOpenChange={handleOpenChange}
+          open={isOpen && !props.isDrawing}
+        >
           <Popover.Trigger asChild>
             <button
               type="button"
@@ -153,6 +159,8 @@ export default function DrawTools() {
         drawType={drawType}
         shapes={shapes}
         setShapes={setShapes}
+        isDrawing={props.isDrawing}
+        setIsDrawing={props.setIsDrawing}
       />
     </>
   );

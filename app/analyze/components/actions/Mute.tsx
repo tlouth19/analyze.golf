@@ -1,28 +1,29 @@
 import { useEffect, useState } from "react";
 import { BsFillVolumeMuteFill, BsFillVolumeDownFill } from "react-icons/bs";
 
-import { useAnalyzer } from "app/context";
-
 const mutedLabel = "Unmute video";
 const label = "Mute video";
 
-export default function Mute() {
-  const { player } = useAnalyzer();
+interface Props {
+  player: HTMLVideoElement;
+}
+
+export default function Mute(props: Props) {
   const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
-    player.onvolumechange = (e) => {
+    props.player.onvolumechange = (e) => {
       const currentTarget = e.currentTarget as HTMLVideoElement;
       setIsMuted(currentTarget.muted);
     };
-  }, [player]);
+  }, [props.player]);
 
   function handleMute() {
-    player.muted = true;
+    props.player.muted = true;
   }
 
   function handleVolume() {
-    player.muted = false;
+    props.player.muted = false;
   }
 
   if (isMuted) {
@@ -33,7 +34,6 @@ export default function Mute() {
         onClick={handleVolume}
         aria-label={mutedLabel}
         title={mutedLabel}
-        disabled={!player}
       >
         <BsFillVolumeMuteFill />
       </button>
@@ -47,7 +47,6 @@ export default function Mute() {
       onClick={handleMute}
       aria-label={label}
       title={label}
-      disabled={!player}
     >
       <BsFillVolumeDownFill />
     </button>

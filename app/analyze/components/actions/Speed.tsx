@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { BsSpeedometer } from "react-icons/bs";
 import * as Popover from "@radix-ui/react-popover";
 
-import { useAnalyzer } from "app/context";
-
 const enum SpeedEnum {
   SLOW4 = 0.1,
   SLOW3 = 0.25,
@@ -26,20 +24,23 @@ const playbackRates = [
   SpeedEnum.FAST2,
 ];
 
-export default function Speed() {
-  const { player } = useAnalyzer();
+interface Props {
+  player: HTMLVideoElement;
+}
+
+export default function Speed(props: Props) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [speed, setSpeed] = useState<SpeedEnum>(SpeedEnum.NORMAL);
 
   useEffect(() => {
-    player.onratechange = (e: Event) => {
+    props.player.onratechange = (e: Event) => {
       const currentTarget = e.currentTarget as HTMLVideoElement;
       setSpeed(currentTarget.playbackRate);
     };
-  }, [player]);
+  }, [props.player]);
 
   function handleChangePlaybackRate(speed: SpeedEnum) {
-    player.playbackRate = speed;
+    props.player.playbackRate = speed;
     setIsOpen(false);
   }
 

@@ -1,22 +1,23 @@
 import { BsArrowLeftRight } from "react-icons/bs";
-import { useAnalyzer } from "app/context";
 
 const label = "Flip video horizontally";
 
-export default function Flip() {
-  const { player } = useAnalyzer();
+interface Props {
+  player: HTMLVideoElement;
+}
 
+export default function Flip(props: Props) {
   function handleFlip() {
-    const isFlipped = player.getAttribute("data-flipped");
+    const isFlipped = props.player.getAttribute("data-flipped");
 
     if (isFlipped === "false") {
-      player.classList.remove("scale-x-100");
-      player.classList.add("-scale-x-100");
-      player.setAttribute("data-flipped", "true");
+      props.player.classList.remove("scale-x-100");
+      props.player.classList.add("-scale-x-100");
+      props.player.setAttribute("data-flipped", "true");
     } else {
-      player.classList.remove("-scale-x-100");
-      player.classList.add("scale-x-100");
-      player.setAttribute("data-flipped", "false");
+      props.player.classList.remove("-scale-x-100");
+      props.player.classList.add("scale-x-100");
+      props.player.setAttribute("data-flipped", "false");
     }
   }
 
