@@ -5,10 +5,9 @@ import dynamic from "next/dynamic";
 import classNames from "classnames";
 import { BsArrowCounterclockwise, BsEraser } from "react-icons/bs";
 
-import { DrawTypeEnum, DrawColorEnum } from "@/enums";
-
 import DrawType from "./DrawType";
 import DrawColor from "./DrawColor";
+import { DrawTypeEnum, DrawColorEnum } from "@/enums";
 
 const Canvas = dynamic(() => import("./Canvas"), {
   ssr: false,

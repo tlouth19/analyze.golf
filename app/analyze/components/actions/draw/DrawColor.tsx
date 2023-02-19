@@ -3,8 +3,8 @@
 import { useState } from "react";
 import * as Popover from "@radix-ui/react-popover";
 
-import { DrawColorEnum } from "@/enums";
 import classNames from "classnames";
+import { DrawColorEnum } from "@/enums";
 
 interface Props {
   drawColor: DrawColorEnum;
