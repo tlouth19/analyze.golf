@@ -1,14 +1,15 @@
 import { useState } from "react";
 import classNames from "classnames";
+import * as Separator from "@radix-ui/react-separator";
 
-import PlayPause from "./PlayPause";
-import Close from "./Close";
-import Muted from "./Mute";
-import Flip from "./Flip";
-import Skip from "./Skip";
-import Progress from "./Progress";
-import Speed from "./Speed";
-import DrawTools from "./DrawTools";
+import PlayPause from "./video/PlayPause";
+import Close from "./video/Close";
+import Muted from "./video/Mute";
+import Flip from "./video/Flip";
+import Skip from "./video/Skip";
+import Progress from "./video/Progress";
+import Speed from "./video/Speed";
+import DrawTools from "./draw/DrawTools";
 
 interface Props {
   player: HTMLVideoElement;
@@ -25,6 +26,10 @@ export default function Actions(props: Props) {
         )}
       >
         <Close />
+        <Separator.Root
+          orientation="horizontal"
+          className="w-full h-[1px] my-1 bg-transparent"
+        />
         <Muted player={props.player} />
         <Flip player={props.player} />
       </div>
