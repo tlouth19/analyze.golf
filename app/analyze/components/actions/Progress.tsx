@@ -79,7 +79,7 @@ export default function Progress(props: Props) {
   return (
     <div className="px-2 w-full">
       <Slider.Root
-        className="relative select-none touch-none w-full h-8 flex items-center rounded"
+        className="relative select-none touch-none w-full h-[36px] sm:h-[42px] flex items-center rounded"
         value={[currentTime]}
         step={0.01}
         min={0}
@@ -88,13 +88,13 @@ export default function Progress(props: Props) {
         onValueChange={handleChange}
         onValueCommit={handleCommit}
       >
-        <Slider.Track className="bg-white relative grow rounded w-full h-8 overflow-hidden bg-opacity-70">
-          <Slider.Range className="absolute bg-brand-blue bg-opacity-80 h-full bg-opacity-70" />
+        <Slider.Track className="bg-white relative grow rounded w-full h-full overflow-hidden bg-opacity-70">
+          <Slider.Range className="absolute bg-brand-blue bg-opacity-70 h-full" />
         </Slider.Track>
         <Tooltip.Provider>
           <Tooltip.Root open>
             <Tooltip.Trigger asChild>
-              <Slider.Thumb className="block w-2 border border-blue-800 h-10 shadow rounded-full focus:shadow-lg bg-brand-blue " />
+              <Slider.Thumb className="block w-3 border border-blue-800 h-[42px] sm:h-[48px] shadow rounded-full focus:shadow-lg bg-brand-blue " />
             </Tooltip.Trigger>
             <Tooltip.Portal>
               <Tooltip.Content
