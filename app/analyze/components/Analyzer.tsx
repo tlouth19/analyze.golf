@@ -2,11 +2,7 @@
 
 import { useSearchParams, redirect } from "next/navigation";
 import { useCallback, useState } from "react";
-import dynamic from "next/dynamic";
-
-const Actions = dynamic(() => import("./actions/Actions"), {
-  ssr: false,
-});
+import Actions from "./actions/Actions";
 
 export default function Analyzer() {
   const params = useSearchParams();
