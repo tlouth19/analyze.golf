@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Konva from "konva";
 import { Stage, Layer, Circle, Line } from "react-konva";
 import { useBoundingclientrectRef, useWindowSize } from "rooks";

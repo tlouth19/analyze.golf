@@ -1,9 +1,9 @@
 import { useState } from "react";
 import classNames from "classnames";
 import * as Separator from "@radix-ui/react-separator";
+
 import PlayPause from "./video/PlayPause";
 import Close from "./video/Close";
-
 import Muted from "./video/Mute";
 import Flip from "./video/Flip";
 import Skip from "./video/Skip";
