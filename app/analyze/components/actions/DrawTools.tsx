@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { TbWaveSine } from "react-icons/tb";
 import {
   BsFillPencilFill,
@@ -15,7 +16,9 @@ import * as Popover from "@radix-ui/react-popover";
 import { DrawTypeEnum, DrawColorEnum } from "@/enums";
 import classNames from "classnames";
 
-import Draw from "./Draw";
+const Draw = dynamic(() => import("./Draw"), {
+  ssr: false,
+});
 
 export interface Shape {
   key: string;
