@@ -33,11 +33,16 @@ export default function Speed(props: Props) {
   const [speed, setSpeed] = useState<SpeedEnum>(SpeedEnum.NORMAL);
 
   useEffect(() => {
-    props.player.onratechange = (e: Event) => {
-      const currentTarget = e.currentTarget as HTMLVideoElement;
-      setSpeed(currentTarget.playbackRate);
+    props.player.addEventListener("ratechange", handleRateChange);
+    return () => {
+      props.player.removeEventListener("ratechange", handleRateChange);
     };
   }, [props.player]);
+
+  function handleRateChange(e: Event) {
+    const currentTarget = e.currentTarget as HTMLVideoElement;
+    setSpeed(currentTarget.playbackRate);
+  }
 
   function handleChangePlaybackRate(speed: SpeedEnum) {
     props.player.playbackRate = speed;

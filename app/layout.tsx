@@ -1,6 +1,3 @@
-/* eslint-disable @next/next/no-before-interactive-script-outside-document */
-
-import Script from "next/script";
 import "./globals.css";
 
 export default function RootLayout({
