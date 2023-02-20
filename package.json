@@ -1,99 +1,47 @@
 {
-  "name": "analyze.golf",
-  "description": "Browser-based golf swing analyzer built with Gatsby + TypeScript + MobX",
-  "version": "1.0.0",
-  "author": "Tyson Louth <tysonlouth@gmail.com>",
-  "license": "MIT",
+  "name": "next",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "gatsby develop",
-    "start-m": "gatsby develop -H 0.0.0.0 -p 8000",
-    "build": "rm -rf public && rm -rf .cache && gatsby build",
-    "tsc": "tsc",
-    "lint": "tslint -p .",
-    "prettier": "prettier --write 'src/**/*.tsx'",
-    "gatsby": "gatsby",
-    "test": "jest",
-    "deploy": "npm run build && s3-deploy './public/**' --cwd './public/' --region us-east-1 --bucket analyze.golf --gzip --cache 604800 --index --deleteRemoved --distId E2NTBHJ74EL34D --invalidate '/*'"
+    "dev": "next dev",
+    "dev-host": "next dev -H 10.200.0.161",
+    "build": "next build",
+    "start": "next start",
+    "lint": "npx eslint . --ext .ts,.tsx --fix",
+    "pretty": "npx prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
-    "@babel/core": "^7.1.6",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/plugin-proposal-decorators": "^7.1.6",
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.10",
-    "babel-preset-gatsby": "^0.1.4",
-    "canvas": "^2.4.1",
-    "evergreen-ui": "^4.14.1",
-    "fabric": "^2.7.0",
-    "fs": "^0.0.1-security",
-    "gatsby": "^2.0.100",
-    "gatsby-background-image": "^0.2.8-alpha1",
-    "gatsby-image": "^2.0.35",
-    "gatsby-plugin-google-analytics": "^2.0.18",
-    "gatsby-plugin-manifest": "^2.0.25",
-    "gatsby-plugin-offline": "^2.0.25",
-    "gatsby-plugin-react-helmet": "^3.0.11",
-    "gatsby-plugin-react-svg": "^2.1.1",
-    "gatsby-plugin-robots-txt": "^1.4.0",
-    "gatsby-plugin-sharp": "^2.0.31",
-    "gatsby-plugin-sitemap": "^2.0.10",
-    "gatsby-plugin-typescript": "^2.0.1",
-    "gatsby-source-filesystem": "^2.0.28",
-    "gatsby-transformer-remark": "^2.3.8",
-    "gatsby-transformer-sharp": "^2.1.17",
-    "mobx": "^5.6.0",
-    "mobx-react": "^5.4.2",
-    "mobx-react-devtools": "^6.0.3",
-    "normalize.css": "^8.0.1",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-helmet": "^5.2.0",
-    "react-rangeslider": "^2.2.0",
-    "s3-deploy": "^1.3.0",
-    "typescript": "^3.1.6",
-    "url-loader": "^1.1.2"
+    "@next/font": "13.1.6",
+    "@radix-ui/react-popover": "^1.0.3",
+    "@radix-ui/react-separator": "^1.0.1",
+    "@radix-ui/react-slider": "^1.1.0",
+    "@radix-ui/react-tooltip": "^1.0.3",
+    "classnames": "^2.3.2",
+    "eslint": "8.34.0",
+    "eslint-config-next": "13.1.6",
+    "next": "13.1.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.7.1",
+    "react-konva": "^18.2.4",
+    "rooks": "^7.4.3",
+    "typescript": "4.9.5"
   },
   "devDependencies": {
-    "@types/jest": "^23.3.9",
-    "@types/react-test-renderer": "^16.0.3",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^23.6.0",
-    "prettier": "1.15.2",
-    "react-test-renderer": "^16.6.3",
-    "ts-jest": "^23.10.5",
-    "tslint": "^5.11.0",
-    "tslint-config-prettier": "^1.16.0",
-    "tslint-react": "^3.6.0"
+    "@types/node": "18.13.0",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.10",
+    "autoprefixer": "^10.4.13",
+    "eslint-plugin-import": "^2.27.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.2",
+    "postcss": "^8.4.21",
+    "prettier": "2.8.4",
+    "tailwindcss": "^3.2.6"
   },
-  "jest": {
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*\\.([tj]sx?)|(\\.|/)(test|spec))\\.([tj]sx?)$",
-    "moduleNameMapper": {
-      ".+\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
-      ".+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/jest/__mocks__/fileMock.js"
-    },
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "testPathIgnorePatterns": [
-      "node_modules",
-      ".cache"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules/(?!(gatsby)/)"
-    ],
-    "globals": {
-      "__PATH_PREFIX__": ""
-    },
-    "setupFiles": [
-      "<rootDir>/jest/loadershim.js"
-    ]
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": ["prettier --write", "eslint --fix"],
+    "*.{css}": "prettier --write"
   }
 }
