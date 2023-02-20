@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -H 10.200.0.161",
+    "dev": "next dev",
+    "dev-host": "next dev -H 10.200.0.161",
     "build": "next build",
     "start": "next start",
     "lint": "npx eslint . --ext .ts,.tsx --fix",
