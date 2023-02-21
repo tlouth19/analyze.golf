@@ -2,7 +2,9 @@
 
 import { useSearchParams, redirect } from "next/navigation";
 import { useCallback, useState } from "react";
+
 import Actions from "./actions/Actions";
+import PlayerError from "./playerError/PlayerError";
 
 export default function Analyzer() {
   const params = useSearchParams();
@@ -32,7 +34,12 @@ export default function Analyzer() {
         className="block max-h-full max-w-full h-full mx-auto pointer-events-none"
       />
 
-      {player && <Actions player={player} />}
+      {player && (
+        <>
+          <Actions player={player} />
+          <PlayerError player={player} />
+        </>
+      )}
     </>
   );
 }

@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function PlayPause(props: Props) {
-  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
 
   useEffect(() => {
     props.player.addEventListener("play", handleIsPlaying);
