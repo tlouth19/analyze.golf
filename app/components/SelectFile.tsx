@@ -2,7 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { BsArrowRepeat } from "react-icons/bs";
+import { BiLoaderCircle } from "react-icons/bi";
 
 export default function SelectFile() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -39,7 +39,7 @@ export default function SelectFile() {
       >
         {isSubmitting && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <BsArrowRepeat className="animate-spin" />
+            <BiLoaderCircle className="animate-spin" />
           </div>
         )}
         <span className={`${isSubmitting ? "opacity-0" : ""}`}>
