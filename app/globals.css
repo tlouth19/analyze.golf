@@ -10,10 +10,6 @@ html,
 body {
   height: 100vh;
   height: var(--doc-height);
-}
-
-html,
-body {
   overscroll-behavior: contain;
   touch-action: none;
 }

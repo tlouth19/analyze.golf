@@ -1,6 +1,5 @@
-import Script from "next/script";
-
 import "./globals.css";
+import MobileVhListener from "./components/MobileVhListener";
 
 export default function RootLayout({
   children,
@@ -9,21 +8,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="">
-      <head>
-        <Script id="viewport">
-          {`
-          function setDocumentHeight() {
-            const doc = document.documentElement
-            doc.style.setProperty('--doc-height', window.innerHeight + 'px')
-           }
-           window.addEventListener('resize', setDocumentHeight)
-           setDocumentHeight()
-        `}
-        </Script>
-      </head>
       <body className="antialiased text-gray-800 dark:text-gray-300 dark:bg-black bg-white w-full flex flex-col items-stretch">
         {children}
       </body>
+      <MobileVhListener />
     </html>
   );
 }
