@@ -10,6 +10,7 @@ Video playback is completely client side - there is no video uploading or server
 - [ ] PWA
 - [ ] Testing with Vitest
 - [ ] Improve home design
+- [ ] Accessibility improvements
 - [ ] Compare multiple swings
   - [ ] Allow selecting of multiple user videos
   - [ ] Add library of swing videos of professionals to compare against 
