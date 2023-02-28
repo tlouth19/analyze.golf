@@ -11,6 +11,8 @@ Video playback is completely client side - there is no video uploading or server
 - [ ] Testing with Vitest
 - [ ] Improve home design
 - [ ] Compare multiple swings
+  - [ ] Allow selecting of multiple user videos
+  - [ ] Add library of swing videos of professionals to compare against 
 - [ ] Offline support
 - [ ] Persist video locally (maybe not possible)
 
