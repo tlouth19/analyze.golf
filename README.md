@@ -6,7 +6,6 @@ Video playback is completely client side - there is no video uploading or server
 
 ## Roadmap
 
-### Dev
 - [x] Update to Vite
 - [ ] PWA
 - [ ] Testing with Vitest
