@@ -4,3 +4,10 @@ A browser-based golf swing analyzer built with Vite, React, TailwindCSS and Konv
 
 Video playback is completely client side - there is no video uploading or server side integration required. Swing lines are drawn using canvas with the help of Konva.js.
 
+## Roadmap
+
+- [x] Update to Vite
+- [ ] Testing with Vitest
+- [ ] Compare multiple swings
+- [ ] Offline support
+- [ ] PWA
