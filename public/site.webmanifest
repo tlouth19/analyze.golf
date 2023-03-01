@@ -1,6 +1,7 @@
 {
   "name": "Analyze.Golf",
   "short_name": "Analyze.Golf",
+  "description":"A browser based golf swing analyzer",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
