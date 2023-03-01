@@ -62,7 +62,7 @@ const PWA = () => {
             <button className="toast-btn">Close</button>
           </Toast.Action>
         </Toast.Root>
-        <Toast.Viewport className="toast-overlay" />
+        {offlineReady && <Toast.Viewport className="toast-overlay" />}
       </Toast.Provider>
     </>
   );
