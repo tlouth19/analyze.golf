@@ -1,4 +1,5 @@
 {
+  "scope": "/",
   "name": "Analyze.Golf",
   "short_name": "Analyze.Golf",
   "description":"A browser based golf swing analyzer. No video upload or server integration required.",
