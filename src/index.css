@@ -67,7 +67,7 @@ body,
 }
 
 .toast-btn {
-  @apply p-2 rounded font-bold uppercase inline-flex gap-1 items-center text-white;
+  @apply p-2 rounded font-bold uppercase inline-flex gap-1 items-center text-current;
 }
 
 .toast-root[data-state="open"] {
