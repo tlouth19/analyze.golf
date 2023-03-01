@@ -26,7 +26,7 @@ const ProgressiveWebApp = () => {
 
   return (
     <>
-      <AlertDialog.Root open={!needRefresh}>
+      <AlertDialog.Root open={needRefresh}>
         <AlertDialog.Portal>
           <AlertDialog.Overlay className="dark:bg-black bg-white !bg-opacity-80 data-[state=open]:animate-overlayShow fixed inset-0" />
           <AlertDialog.Content className="data-[state=open]:animate-contentShow dark:bg-gray-900 bg-gray-100 border dark:border-gray-600 border-gray-300 fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[500px] translate-x-[-50%] translate-y-[-50%] rounded  p-4 shadow focus:outline-none">
@@ -52,7 +52,7 @@ const ProgressiveWebApp = () => {
       <Toast.Provider swipeDirection="right">
         <Toast.Root
           className="dark:bg-gray-900 bg-gray-100 border dark:border-gray-600 border-gray-300 rounded shadow p-4 grid [grid-template-areas:_'title_action'_'description_action'] grid-cols-[auto_max-content] gap-x-4 items-center data-[state=open]:animate-slideIn data-[state=closed]:animate-hide data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[swipe=cancel]:translate-x-0 data-[swipe=cancel]:transition-[transform_200ms_ease-out] data-[swipe=end]:animate-swipeOut"
-          open={!offlineReady}
+          open={offlineReady}
           onOpenChange={handleClose}
         >
           <Toast.Title className="[grid-area:_title] font-bold text-sm uppercase flex items-center gap-2">
