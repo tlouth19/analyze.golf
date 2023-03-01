@@ -7,14 +7,14 @@ Video playback is completely client side - there is no video uploading or server
 ## Roadmap
 
 - [x] Update to Vite
-- [ ] PWA
+- [x] PWA
+- [x] Offline support
 - [ ] Testing with Vitest
 - [ ] Improve home design
 - [ ] Accessibility improvements
 - [ ] Compare multiple swings
   - [ ] Allow selecting of multiple user videos
   - [ ] Add library of swing videos of professionals to compare against 
-- [ ] Offline support
 - [ ] Persist video locally (maybe not possible)
 
 
