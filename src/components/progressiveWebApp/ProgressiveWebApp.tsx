@@ -55,12 +55,13 @@ const ProgressiveWebApp = () => {
           open={offlineReady}
           onOpenChange={handleClose}
         >
-          <Toast.Title className="[grid-area:_title] font-bold text-sm uppercase flex items-center gap-2">
+          <Toast.Title className="[grid-area:_title] font-bold text-sm uppercase flex items-center gap-2 mb-1">
             <BsWifiOff /> Offline Available
           </Toast.Title>
           <Toast.Description asChild>
             <span className="text-current text-sm">
-              App will now work without a network connection.
+              If you&apos;re on the golf course with no connection, the app will
+              still work!
             </span>
           </Toast.Description>
           <Toast.Action className="[grid-area:_action]" asChild altText="Close">
