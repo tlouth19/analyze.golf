@@ -5,7 +5,7 @@ import FilePicker from "./FilePicker";
 const SelectFile = () => {
   return (
     <>
-      <header className="flex items-center justify-between gap-2 max-w-6xl mx-auto px-4 py-6 w-full">
+      <header className="flex items-center justify-between gap-2 max-w-6xl mx-auto px-4 py-4 w-full">
         <svg className="w-44 md:w-52" viewBox="0 0 512 86">
           <title>Analyze.Golf Logo</title>
           <path
@@ -51,8 +51,8 @@ const SelectFile = () => {
           <FilePicker />
         </div>
       </section>
-      <footer className="flex items-center justify-center gap-2 mx-auto px-4 py-2 sm:py-4 w-full text-center">
-        <p className="text-xs">
+      <footer className="flex items-center justify-center gap-2 mx-auto px-4 py-4 w-full text-center">
+        <p className="text-xs sm:text-sm">
           Built with{" "}
           <a
             href="https://reactjs.org/"
