@@ -1,4 +1,5 @@
-# <a href='https://analyze.golf'><img src='https://analyze.golf/logo.png' height='40' alt='Analyze.Golf logo' aria-label='analyze.golf' /></a>
+![Fancy logo](./public/logo-dark.png#gh-dark-mode-only)
+![Fancy logo](./public/logo.png#gh-light-mode-only)
 
 A browser based golf swing analyzer built with Vite, React, Redux, Tailwind and Konva.js.
 
