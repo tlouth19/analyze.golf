@@ -8,9 +8,9 @@ import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { setDrawType } from "../../../redux/slices/draw";
 
 const drawTypes = [
-  { type: DrawTypeEnum.LINE, icon: <BsSlashLg /> },
-  { type: DrawTypeEnum.CIRCLE, icon: <BsCircle /> },
-  { type: DrawTypeEnum.FREE, icon: <TbWaveSine /> },
+  { type: DrawTypeEnum.LINE, icon: <BsSlashLg className="stroke-current" /> },
+  { type: DrawTypeEnum.CIRCLE, icon: <BsCircle className="stroke-current" /> },
+  { type: DrawTypeEnum.FREE, icon: <TbWaveSine className="stroke-current" /> },
 ];
 
 const DrawType = () => {
@@ -41,7 +41,7 @@ const DrawType = () => {
       <Popover.Portal>
         <Popover.Content
           side="left"
-          className="p-1 shadow rounded duration-300 ease-in-out will-change-auto flex bg-black  gap-2 text-white"
+          className="p-1 shadow rounded duration-300 ease-in-out will-change-auto flex bg-white dark:bg-black gap-2 text-white border border-black dark:border-white"
         >
           {drawTypes.map((type) => (
             <button
@@ -52,13 +52,15 @@ const DrawType = () => {
               }}
               aria-label={`Draw with ${type.type}`}
               className={`block text-center p-2 rounded ${
-                drawType === type.type ? "text-brand-blue bg-white" : ""
+                drawType === type.type
+                  ? "text-white bg-brand-blue"
+                  : "text-black dark:text-white"
               }`}
             >
               {type.icon}
             </button>
           ))}
-          <Popover.Arrow className="fill-black" />
+          <Popover.Arrow className="fill-black dark:fill-white" />
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>

@@ -19,13 +19,13 @@ const SelectFile = () => {
             <path d="M34.2308288,13.4246548 C33.468774,12.0654967 31.7650603,11.5953618 30.4450789,12.3800341 L25.0915806,15.5629148 L17.4753601,15.5629148 C15.7528926,15.5629148 14.7037597,16.5681718 14.7037597,18.4164039 L14.7091695,36.4750087 L9.23052538,43.312019 C8.26037516,44.5230065 8.42879904,46.3307609 9.60452018,47.3297049 C10.7802413,48.3282775 12.5358887,48.1552262 13.5060389,46.9446102 L20.2465997,38.5323134 L20.2465997,45.1465109 C20.2465997,46.7158557 21.4937296,48 23.0182,48 C24.5423096,48 25.7894396,46.7158557 25.7894396,45.1465109 L25.7894396,24.1241247 L22.0942131,24.1241247 C21.3289123,24.1241247 20.7085932,23.4850233 20.7085932,22.6970088 C20.7085932,21.9089942 21.3289123,21.2702643 22.0942131,21.2702643 L25.7894396,21.2695216 C26.2748755,21.2784341 26.7675242,21.1570011 27.2161736,20.8899971 L33.2166793,17.3231358 C34.5366606,16.5380921 34.9928837,14.7841841 34.2308288,13.4246548 Z" />
           </g>
         </svg>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1">
           <a
             href="https://github.com/tlouth19/analyze.golf"
             target="_blank"
             rel="noreferrer"
             aria-label="Visit Analyze.Golf on GitHub"
-            className="text-xl"
+            className="text-xl hover:bg-brand-blue border border-transparent hover:border-current focus:border-current focus:bg-brand-blue bg-opacity-40 rounded-full p-1 transition-all"
           >
             <BsGithub />
           </a>
@@ -34,7 +34,7 @@ const SelectFile = () => {
             target="_blank"
             rel="noreferrer"
             aria-label="Visit Analyze.Golf on Twitter"
-            className="text-xl"
+            className="text-xl hover:bg-brand-blue border border-transparent hover:border-current focus:border-current focus:bg-brand-blue bg-opacity-40 rounded-full p-1 transition-all"
           >
             <BsTwitter />
           </a>
@@ -58,7 +58,7 @@ const SelectFile = () => {
             href="https://reactjs.org/"
             target="_blank"
             rel="noreferrer"
-            className="underline"
+            className="underline hover:text-brand-blue focus:text-brand-blue"
           >
             React
           </a>
@@ -67,7 +67,7 @@ const SelectFile = () => {
             href="https://tailwindcss.com/"
             target="_blank"
             rel="noreferrer"
-            className="underline"
+            className="underline hover:text-brand-blue focus:text-brand-blue"
           >
             Tailwind
           </a>{" "}
@@ -76,7 +76,7 @@ const SelectFile = () => {
             href="https://konvajs.org/"
             target="_blank"
             rel="noreferrer"
-            className="underline"
+            className="underline hover:text-brand-blue focus:text-brand-blue"
           >
             Konva.js
           </a>{" "}
@@ -85,20 +85,9 @@ const SelectFile = () => {
             href="https://tysonlouth.com"
             target="_blank"
             rel="noreferrer"
-            className="underline"
+            className="underline hover:text-brand-blue focus:text-brand-blue"
           >
             Tyson Louth
-          </a>
-          . <br className="sm:hidden" />
-          View this project on{" "}
-          <a
-            href="https://github.com/tlouth19/analyze.golf"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Visit Analyze.Golf on GitHub"
-            className="underline"
-          >
-            GitHub
           </a>
           .
         </p>

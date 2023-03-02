@@ -45,7 +45,7 @@ const Progress = () => {
         onValueChange={handleChange}
         onValueCommit={handleCommit}
       >
-        <Slider.Track className="bg-white relative grow rounded w-full h-full overflow-hidden bg-opacity-70">
+        <Slider.Track className="bg-black dark:bg-white relative grow rounded w-full h-full overflow-hidden !bg-opacity-40">
           <Slider.Range className="absolute bg-brand-blue bg-opacity-70 h-full" />
         </Slider.Track>
         <Tooltip.Provider>

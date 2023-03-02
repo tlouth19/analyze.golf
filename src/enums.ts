@@ -10,4 +10,5 @@ export const enum DrawColorEnum {
   RED = "#840026",
   BLUE = "#140084",
   ORANGE = "#843500",
+  BLACK = "#000000",
 }

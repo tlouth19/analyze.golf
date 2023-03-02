@@ -29,7 +29,7 @@ const Speed = () => {
         </button>
       </Popover.Trigger>
       <Popover.Portal>
-        <Popover.Content className="py-2 bg-black shadow rounded duration-300 ease-in-out will-change-auto grid gap-2 text-white">
+        <Popover.Content className="p-2 dark:bg-black bg-white border border-black dark:border-white shadow rounded duration-300 ease-in-out will-change-auto grid gap-2 ">
           {[0.1, 0.25, 0.5, 0.75, 1, 1.5, 2.0].map((rate) => (
             <button
               key={rate}
@@ -37,15 +37,15 @@ const Speed = () => {
               onClick={() => {
                 handleChangePlaybackRate(rate);
               }}
-              className={`block text-center py-1 px-4 ${
-                rate === speed ? "text-brand-blue bg-white" : ""
+              className={`block text-center py-1 px-4 rounded ${
+                rate === speed ? "text-white bg-brand-blue" : "text-current"
               }`}
             >
               {rate}x
             </button>
           ))}
 
-          <Popover.Arrow className="fill-black" />
+          <Popover.Arrow className="fill-black dark:fill-white" />
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>

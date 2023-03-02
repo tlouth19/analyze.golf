@@ -35,7 +35,7 @@ const FilePicker = () => {
         type="button"
         onClick={handleOpenFile}
         disabled={isCreatingBlob}
-        className="px-4 py-3 bg-transparent rounded uppercase border-2 border-dashed border-brand-blue font-semibold text-xl tracking-wide mb-2 relative"
+        className="px-4 py-3 bg-transparent rounded uppercase border-2 border-dashed border-brand-blue font-semibold text-xl tracking-wide mb-2 relative hover:bg-brand-blue focus:bg-brand-blue hover:border-current focus:border-current transition-all"
       >
         Select Video
       </button>

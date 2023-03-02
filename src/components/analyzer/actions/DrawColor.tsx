@@ -11,6 +11,7 @@ const drawColors = [
   DrawColorEnum.RED,
   DrawColorEnum.BLUE,
   DrawColorEnum.ORANGE,
+  DrawColorEnum.BLACK,
 ];
 
 const DrawColor = () => {
@@ -36,7 +37,9 @@ const DrawColor = () => {
           aria-label="Select draw color"
         >
           <div
-            className={"h-4 w-4 border border-white rounded-full"}
+            className={
+              "h-4 w-4 border dark:border-white border-black rounded-full"
+            }
             style={{
               backgroundColor: drawColors.find((c) => c === drawColor),
             }}
@@ -46,7 +49,7 @@ const DrawColor = () => {
       <Popover.Portal>
         <Popover.Content
           side="left"
-          className="p-1 shadow rounded duration-300 ease-in-out will-change-auto flex bg-black  gap-2 text-white"
+          className="p-1 shadow rounded duration-300 ease-in-out will-change-auto flex bg-white dark:bg-black gap-2 text-white border border-black dark:border-white"
         >
           {drawColors.map((color) => (
             <button
@@ -57,18 +60,20 @@ const DrawColor = () => {
               }}
               aria-label={`Draw with ${color}`}
               className={`block text-center p-2 rounded ${
-                drawColor === color ? "text-brand-blue bg-white" : ""
+                drawColor === color
+                  ? "text-white bg-brand-blue"
+                  : "text-black dark:text-white"
               }`}
             >
               <div
-                className={`h-4 w-4 border border-white rounded-full ${
+                className={`h-4 w-4 border dark:border-white border-black rounded-full ${
                   drawColor === color ? "!border-black" : ""
                 } `}
                 style={{ backgroundColor: color }}
               />
             </button>
           ))}
-          <Popover.Arrow className="fill-black" />
+          <Popover.Arrow className="fill-black dark:fill-white" />
         </Popover.Content>
       </Popover.Portal>
     </Popover.Root>
