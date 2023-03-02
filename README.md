@@ -1,6 +1,7 @@
-![Fancy logo](./public/logo-dark.png#gh-dark-mode-only)
-![Fancy logo](./public/logo.png#gh-light-mode-only)
+![Fancy logo](./public/light-logo.png#gh-dark-mode-only)
+![Fancy logo](./public/dark-logo.png#gh-light-mode-only)
 
+## Summary
 A browser based golf swing analyzer built with Vite, React, Redux, Tailwind and Konva.js.
 
 Video playback is completely client side - there is no video uploading or server side integration required. Swing lines are drawn using canvas with the help of Konva.js.
