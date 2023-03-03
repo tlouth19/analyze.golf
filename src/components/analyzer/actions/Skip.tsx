@@ -1,5 +1,5 @@
 import { BsFillSkipForwardFill, BsFillSkipBackwardFill } from "react-icons/bs";
-import { getPlayer } from "../../../helpers";
+import { getPlayer } from "@helpers";
 
 const skipBackLabel = "Skip back";
 const skipForwardLabel = "Skip forward";

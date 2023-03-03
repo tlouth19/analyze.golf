@@ -1,7 +1,8 @@
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 
-import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { reset } from "../../../redux/slices/video";
+import useAppSelector from "@hooks/useAppSelector";
+import useAppDispatch from "@hooks/useAppDispatch";
+import { reset } from "@redux/slices/video";
 
 const label = "Close video";
 

@@ -1,7 +1,7 @@
 import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
 
-import { useAppSelector } from "../../../hooks";
-import { getPlayer } from "../../../helpers";
+import useAppSelector from "@hooks/useAppSelector";
+import { getPlayer } from "@helpers";
 
 const playLabel = "Play video";
 const pauseLabel = "Pause video";

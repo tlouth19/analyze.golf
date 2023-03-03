@@ -1,7 +1,8 @@
 import { BsArrowLeftRight } from "react-icons/bs";
 
-import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { setFlipped } from "../../../redux/slices/video";
+import useAppSelector from "@hooks/useAppSelector";
+import useAppDispatch from "@hooks/useAppDispatch";
+import { setFlipped } from "@redux/slices/video";
 
 const label = "Flip video horizontally";
 

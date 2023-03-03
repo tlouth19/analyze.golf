@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 
-import { useAppDispatch } from "../../hooks";
-import { setBlob } from "../../redux/slices/video";
+import useAppDispatch from "@hooks/useAppDispatch";
+import { setBlob } from "@redux/slices/video";
 
 const FilePicker = () => {
   const dispatch = useAppDispatch();

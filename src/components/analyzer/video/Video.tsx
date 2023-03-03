@@ -1,11 +1,12 @@
-import { useAppDispatch, useAppSelector } from "../../../hooks";
+import useAppSelector from "@hooks/useAppSelector";
+import useAppDispatch from "@hooks/useAppDispatch";
 import {
   setPlayback,
   setDuration,
   setCurrentTime,
   setSpeed,
   setMuted,
-} from "../../../redux/slices/video";
+} from "@redux/slices/video";
 
 const Video = () => {
   const { blob, isFlipped } = useAppSelector((state) => state.video);

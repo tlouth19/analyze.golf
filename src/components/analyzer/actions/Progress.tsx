@@ -2,8 +2,8 @@ import { useRef } from "react";
 import * as Slider from "@radix-ui/react-slider";
 import * as Tooltip from "@radix-ui/react-tooltip";
 
-import { useAppSelector } from "../../../hooks";
-import { getPlayer } from "../../../helpers";
+import useAppSelector from "@hooks/useAppSelector";
+import { getPlayer } from "@helpers";
 
 const Progress = () => {
   const { duration, currentTime, isPlaying } = useAppSelector(

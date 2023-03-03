@@ -1,9 +1,10 @@
 import { useState } from "react";
 import * as Popover from "@radix-ui/react-popover";
 
-import { DrawColorEnum } from "../../../enums";
-import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { setDrawColor } from "../../../redux/slices/draw";
+import { DrawColorEnum } from "@enums";
+import useAppSelector from "@hooks/useAppSelector";
+import useAppDispatch from "@hooks/useAppDispatch";
+import { setDrawColor } from "@redux/slices/draw";
 
 const drawColors = [
   DrawColorEnum.WHITE,

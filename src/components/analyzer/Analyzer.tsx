@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import * as Separator from "@radix-ui/react-separator";
 
-import { useAppSelector } from "../../hooks";
+import useAppSelector from "@hooks/useAppSelector";
 import Video from "./video/Video";
 import PlayPause from "./actions/PlayPause";
 import Progress from "./actions/Progress";

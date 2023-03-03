@@ -1,7 +1,7 @@
 import { BsFillVolumeMuteFill, BsFillVolumeDownFill } from "react-icons/bs";
-import { getPlayer } from "../../../helpers";
+import { getPlayer } from "@helpers";
 
-import { useAppSelector } from "../../../hooks";
+import useAppSelector from "@hooks/useAppSelector";
 
 const mutedLabel = "Unmute video";
 const label = "Mute video";

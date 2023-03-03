@@ -3,9 +3,10 @@ import { TbWaveSine } from "react-icons/tb";
 import { BsSlashLg, BsCircle } from "react-icons/bs";
 import * as Popover from "@radix-ui/react-popover";
 
-import { DrawTypeEnum } from "../../../enums";
-import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { setDrawType } from "../../../redux/slices/draw";
+import { DrawTypeEnum } from "@enums";
+import useAppSelector from "@hooks/useAppSelector";
+import useAppDispatch from "@hooks/useAppDispatch";
+import { setDrawType } from "@redux/slices/draw";
 
 const drawTypes = [
   { type: DrawTypeEnum.LINE, icon: <BsSlashLg className="stroke-current" /> },

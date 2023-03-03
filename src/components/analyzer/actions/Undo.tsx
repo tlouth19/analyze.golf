@@ -1,7 +1,8 @@
 import { BsArrowCounterclockwise } from "react-icons/bs";
 
-import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { undoShape } from "../../../redux/slices/draw";
+import useAppSelector from "@hooks/useAppSelector";
+import useAppDispatch from "@hooks/useAppDispatch";
+import { undoShape } from "@redux/slices/draw";
 
 const Undo = () => {
   const { shapes } = useAppSelector((state) => state.draw);

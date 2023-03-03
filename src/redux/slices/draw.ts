@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { DrawColorEnum, DrawTypeEnum } from "../../enums";
+import { DrawColorEnum, DrawTypeEnum } from "@enums";
 
 interface Shape {
   key: string;

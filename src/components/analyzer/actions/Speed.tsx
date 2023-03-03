@@ -2,8 +2,8 @@ import { useState } from "react";
 import { BsSpeedometer } from "react-icons/bs";
 import * as Popover from "@radix-ui/react-popover";
 
-import { useAppSelector } from "../../../hooks";
-import { getPlayer } from "../../../helpers";
+import useAppSelector from "@hooks/useAppSelector";
+import { getPlayer } from "@helpers";
 
 const Speed = () => {
   const { speed } = useAppSelector((state) => state.video);

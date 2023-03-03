@@ -1,7 +1,8 @@
 import { BsEraser } from "react-icons/bs";
 
-import { useAppDispatch, useAppSelector } from "../../../hooks";
-import { eraseShapes } from "../../../redux/slices/draw";
+import useAppSelector from "@hooks/useAppSelector";
+import useAppDispatch from "@hooks/useAppDispatch";
+import { eraseShapes } from "@redux/slices/draw";
 
 const Erase = () => {
   const { shapes } = useAppSelector((state) => state.draw);

@@ -1,6 +1,7 @@
-import SelectFile from "./components/selectFile/SelectFile";
-import Analyzer from "./components/analyzer/Analyzer";
-import { useAppSelector, useVhHeight } from "./hooks";
+import SelectFile from "@components/selectFile/SelectFile";
+import Analyzer from "@components/analyzer/Analyzer";
+import useVhHeight from "@hooks/useVhHeight";
+import useAppSelector from "@hooks/useAppSelector";
 
 function App() {
   useVhHeight();

@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { Stage } from "react-konva";
 
 import { useWindowSize } from "rooks";
-import { useCanvasEvents } from "../../../hooks";
+import useCanvasEvents from "@hooks/useCanvasEvents";
 
 import Shapes from "./Shapes";
 

@@ -1,7 +1,8 @@
 import { Layer, Circle, Line } from "react-konva";
-import { useAppSelector } from "../../../hooks";
 
-import { DrawTypeEnum } from "../../../enums";
+import useAppSelector from "@hooks/useAppSelector";
+
+import { DrawTypeEnum } from "@enums";
 
 const Shapes = () => {
   const { shapes } = useAppSelector((state) => state.draw);

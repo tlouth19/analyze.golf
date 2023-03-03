@@ -1,29 +1,11 @@
-import { useEffect } from "react";
-import { useWindowSize } from "rooks";
 import type Konva from "konva";
-import {
-  type TypedUseSelectorHook,
-  useDispatch,
-  useSelector,
-} from "react-redux";
 
-import type { RootState, AppDispatch } from "./redux/store";
-import { setIsDrawing, setShapes } from "./redux/slices/draw";
-import { DrawTypeEnum } from "./enums";
+import { setIsDrawing, setShapes } from "@redux/slices/draw";
+import { DrawTypeEnum } from "@enums";
+import useAppDispatch from "@hooks/useAppDispatch";
+import useAppSelector from "@hooks/useAppSelector";
 
-// This component fixes issues settings 100vh on mobile devices (especially ios safari)
-export const useVhHeight = () => {
-  const { innerHeight } = useWindowSize();
-
-  useEffect(() => {
-    if (innerHeight != null) {
-      const doc = document.documentElement;
-      doc.style.setProperty("--doc-height", `${innerHeight}px`);
-    }
-  }, [innerHeight]);
-};
-
-export const useCanvasEvents = () => {
+const useCanvasEvents = () => {
   const dispatch = useAppDispatch();
   const { type, color, isDrawing, shapes } = useAppSelector(
     (state) => state.draw
@@ -228,5 +210,4 @@ export const useCanvasEvents = () => {
   };
 };
 
-export const useAppDispatch: () => AppDispatch = useDispatch;
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+export default useCanvasEvents;
