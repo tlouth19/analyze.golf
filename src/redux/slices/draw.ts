@@ -3,8 +3,8 @@ import { DrawColorEnum, DrawTypeEnum } from "../../enums";
 
 interface Shape {
   key: string;
-  drawColor: DrawColorEnum;
-  drawType: DrawTypeEnum;
+  color: DrawColorEnum;
+  type: DrawTypeEnum;
   points: number[];
   width?: number;
   height?: number;

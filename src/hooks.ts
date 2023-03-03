@@ -25,17 +25,16 @@ export const useVhHeight = () => {
 
 export const useCanvasEvents = () => {
   const dispatch = useAppDispatch();
-  const drawType = useAppSelector((state) => state.draw.type);
-  const drawColor = useAppSelector((state) => state.draw.color);
-  const isDrawing = useAppSelector((state) => state.draw.isDrawing);
-  const shapes = useAppSelector((state) => state.draw.shapes);
+  const { type, color, isDrawing, shapes } = useAppSelector(
+    (state) => state.draw
+  );
 
   const handleMouseOrTouchDown = (
     event: Konva.KonvaEventObject<MouseEvent | TouchEvent>
   ) => {
     dispatch(setIsDrawing(true));
 
-    switch (drawType) {
+    switch (type) {
       case DrawTypeEnum.FREE: {
         handleFreeDown(event);
         return;
@@ -60,7 +59,7 @@ export const useCanvasEvents = () => {
       return;
     }
 
-    switch (drawType) {
+    switch (type) {
       case DrawTypeEnum.FREE: {
         handleFreeMove(event);
         return;
@@ -94,8 +93,8 @@ export const useCanvasEvents = () => {
             ...shapes,
             {
               key: String(shapes.length + 1),
-              drawType: DrawTypeEnum.FREE,
-              drawColor,
+              type: DrawTypeEnum.FREE,
+              color,
               points: [pointerPosition.x, pointerPosition.y],
             },
           ])
@@ -136,8 +135,8 @@ export const useCanvasEvents = () => {
             ...shapes,
             {
               key: String(shapes.length + 1),
-              drawType: DrawTypeEnum.LINE,
-              drawColor,
+              type: DrawTypeEnum.LINE,
+              color,
               points: [pointerPosition.x, pointerPosition.y],
             },
           ])
@@ -179,8 +178,8 @@ export const useCanvasEvents = () => {
             ...shapes,
             {
               key: String(shapes.length + 1),
-              drawType: DrawTypeEnum.CIRCLE,
-              drawColor,
+              type: DrawTypeEnum.CIRCLE,
+              color,
               points: [pointerPosition.x, pointerPosition.y],
               width: 1,
               height: 1,

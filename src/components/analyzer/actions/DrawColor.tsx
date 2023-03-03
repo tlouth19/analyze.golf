@@ -16,8 +16,7 @@ const drawColors = [
 
 const DrawColor = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const isDrawing = useAppSelector((state) => state.draw.isDrawing);
-  const drawColor = useAppSelector((state) => state.draw.color);
+  const { isDrawing, color } = useAppSelector((state) => state.draw);
   const dispatch = useAppDispatch();
 
   const handleOpenChange = (open: boolean) => {
@@ -41,7 +40,7 @@ const DrawColor = () => {
               "h-4 w-4 border dark:border-white border-black rounded-full"
             }
             style={{
-              backgroundColor: drawColors.find((c) => c === drawColor),
+              backgroundColor: drawColors.find((c) => c === color),
             }}
           />
         </button>
@@ -51,14 +50,14 @@ const DrawColor = () => {
           side="left"
           className="p-1 shadow rounded duration-300 ease-in-out will-change-auto flex bg-white dark:bg-black gap-2 text-white border border-black dark:border-white"
         >
-          {drawColors.map((color) => (
+          {drawColors.map((drawColor) => (
             <button
-              key={color}
+              key={drawColor}
               type="button"
               onClick={() => {
-                handleChange(color);
+                handleChange(drawColor);
               }}
-              aria-label={`Draw with ${color}`}
+              aria-label={`Draw with ${drawColor}`}
               className={`block text-center p-2 rounded ${
                 drawColor === color
                   ? "text-white bg-brand-blue"
@@ -69,7 +68,7 @@ const DrawColor = () => {
                 className={`h-4 w-4 border dark:border-white border-black rounded-full ${
                   drawColor === color ? "!border-black" : ""
                 } `}
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: drawColor }}
               />
             </button>
           ))}

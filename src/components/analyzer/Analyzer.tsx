@@ -20,7 +20,7 @@ import Undo from "./actions/Undo";
 const Canvas = lazy(() => import("./draw/Canvas"));
 
 const Analyzer = () => {
-  const isDrawing = useAppSelector((state) => state.draw.isDrawing);
+  const { isDrawing } = useAppSelector((state) => state.draw);
   return (
     <div className="absolute inset-0">
       <div className="h-full relative flex items-stretch justify-center text-white">

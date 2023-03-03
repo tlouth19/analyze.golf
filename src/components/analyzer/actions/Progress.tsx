@@ -6,10 +6,10 @@ import { useAppSelector } from "../../../hooks";
 import { getPlayer } from "../../../helpers";
 
 const Progress = () => {
-  const currentTime = useAppSelector((state) => state.video.currentTime);
-  const duration = useAppSelector((state) => state.video.duration);
-  const isPlaying = useAppSelector((state) => state.video.isPlaying);
-  const isDrawing = useAppSelector((state) => state.draw.isDrawing);
+  const { duration, currentTime, isPlaying } = useAppSelector(
+    (state) => state.video
+  );
+  const { isDrawing } = useAppSelector((state) => state.draw);
   const isPlayingAtStartOfSliderChange = useRef<boolean>(false);
   const isDragging = useRef<boolean>(false);
 

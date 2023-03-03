@@ -7,7 +7,7 @@ const mutedLabel = "Unmute video";
 const label = "Mute video";
 
 const Muted = () => {
-  const isMuted = useAppSelector((state) => state.video.isMuted);
+  const { isMuted } = useAppSelector((state) => state.video);
 
   const handleMute = () => {
     getPlayer().muted = true;

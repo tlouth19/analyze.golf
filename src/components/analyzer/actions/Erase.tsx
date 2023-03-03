@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { eraseShapes } from "../../../redux/slices/draw";
 
 const Erase = () => {
-  const shapes = useAppSelector((state) => state.draw.shapes);
+  const { shapes } = useAppSelector((state) => state.draw);
   const dispatch = useAppDispatch();
 
   const handleErase = () => {

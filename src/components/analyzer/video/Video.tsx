@@ -8,8 +8,7 @@ import {
 } from "../../../redux/slices/video";
 
 const Video = () => {
-  const blob = useAppSelector((state) => state.video.blob);
-  const isFlipped = useAppSelector((state) => state.video.isFlipped);
+  const { blob, isFlipped } = useAppSelector((state) => state.video);
   const dispatch = useAppDispatch();
 
   const onPlay = () => {

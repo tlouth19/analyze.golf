@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../../hooks";
 import { undoShape } from "../../../redux/slices/draw";
 
 const Undo = () => {
-  const shapes = useAppSelector((state) => state.draw.shapes);
+  const { shapes } = useAppSelector((state) => state.draw);
   const dispatch = useAppDispatch();
 
   const handleUndo = () => {

@@ -7,7 +7,7 @@ const label = "Flip video horizontally";
 
 const Flip = () => {
   const dispatch = useAppDispatch();
-  const isFlipped = useAppSelector((state) => state.video.isFlipped);
+  const { isFlipped } = useAppSelector((state) => state.video);
 
   const handleFlip = () => {
     dispatch(setFlipped(!isFlipped));

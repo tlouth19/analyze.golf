@@ -6,7 +6,7 @@ import { reset } from "../../../redux/slices/video";
 const label = "Close video";
 
 const Close = () => {
-  const blob = useAppSelector((state) => state.video.blob);
+  const { blob } = useAppSelector((state) => state.video);
   const dispatch = useAppDispatch();
 
   const handleClose = () => {

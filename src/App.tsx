@@ -4,7 +4,7 @@ import { useAppSelector, useVhHeight } from "./hooks";
 
 function App() {
   useVhHeight();
-  const blob = useAppSelector((state) => state.video.blob);
+  const { blob } = useAppSelector((state) => state.video);
 
   if (blob !== undefined) {
     return <Analyzer />;

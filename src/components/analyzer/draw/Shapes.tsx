@@ -4,19 +4,19 @@ import { useAppSelector } from "../../../hooks";
 import { DrawTypeEnum } from "../../../enums";
 
 const Shapes = () => {
-  const shapes = useAppSelector((state) => state.draw.shapes);
+  const { shapes } = useAppSelector((state) => state.draw);
 
   return (
     <Layer>
       {shapes.map((shape) => {
-        switch (shape.drawType) {
+        switch (shape.type) {
           case DrawTypeEnum.FREE:
           case DrawTypeEnum.LINE:
             return (
               <Line
                 key={shape.key}
                 points={shape.points}
-                stroke={shape.drawColor}
+                stroke={shape.color}
                 strokeWidth={5}
                 tension={0.5}
               />
@@ -29,7 +29,7 @@ const Shapes = () => {
                 y={shape.points[1]}
                 width={shape.width}
                 height={shape.height}
-                stroke={shape.drawColor}
+                stroke={shape.color}
                 strokeWidth={5}
                 tension={0.5}
                 radius={50}

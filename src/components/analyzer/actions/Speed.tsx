@@ -6,7 +6,7 @@ import { useAppSelector } from "../../../hooks";
 import { getPlayer } from "../../../helpers";
 
 const Speed = () => {
-  const speed = useAppSelector((state) => state.video.speed);
+  const { speed } = useAppSelector((state) => state.video);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleOpenChange = (open: boolean) => {

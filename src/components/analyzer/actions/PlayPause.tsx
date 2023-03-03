@@ -7,7 +7,7 @@ const playLabel = "Play video";
 const pauseLabel = "Pause video";
 
 const PlayPause = () => {
-  const isPlaying = useAppSelector((state) => state.video.isPlaying);
+  const { isPlaying } = useAppSelector((state) => state.video);
 
   const handlePause = () => {
     getPlayer().pause();

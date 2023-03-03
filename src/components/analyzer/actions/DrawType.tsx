@@ -15,8 +15,7 @@ const drawTypes = [
 
 const DrawType = () => {
   const dispatch = useAppDispatch();
-  const drawType = useAppSelector((state) => state.draw.type);
-  const isDrawing = useAppSelector((state) => state.draw.isDrawing);
+  const { type, isDrawing } = useAppSelector((state) => state.draw);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleOpenChange = (open: boolean) => {
@@ -35,7 +34,7 @@ const DrawType = () => {
           className="btn-action"
           aria-label="Select draw tool"
         >
-          {drawTypes.find((t) => t.type === drawType)?.icon}
+          {drawTypes.find((t) => t.type === type)?.icon}
         </button>
       </Popover.Trigger>
       <Popover.Portal>
@@ -43,21 +42,21 @@ const DrawType = () => {
           side="left"
           className="p-1 shadow rounded duration-300 ease-in-out will-change-auto flex bg-white dark:bg-black gap-2 text-white border border-black dark:border-white"
         >
-          {drawTypes.map((type) => (
+          {drawTypes.map((drawType) => (
             <button
-              key={type.type}
+              key={drawType.type}
               type="button"
               onClick={() => {
-                handleChange(type.type);
+                handleChange(drawType.type);
               }}
-              aria-label={`Draw with ${type.type}`}
+              aria-label={`Draw with ${drawType.type}`}
               className={`block text-center p-2 rounded ${
-                drawType === type.type
+                type === drawType.type
                   ? "text-white bg-brand-blue"
                   : "text-black dark:text-white"
               }`}
             >
-              {type.icon}
+              {drawType.icon}
             </button>
           ))}
           <Popover.Arrow className="fill-black dark:fill-white" />
