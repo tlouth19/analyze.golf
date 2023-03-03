@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import * as Separator from "@radix-ui/react-separator";
 
 import useAppSelector from "@hooks/useAppSelector";
+import ErrorBoundary from "@components/errorBoundary/ErrorBoundary";
 import Video from "./video/Video";
 import PlayPause from "./actions/PlayPause";
 import Progress from "./actions/Progress";
@@ -22,48 +23,50 @@ const Canvas = lazy(() => import("./draw/Canvas"));
 const Analyzer = () => {
   const { isDrawing } = useAppSelector((state) => state.draw);
   return (
-    <div className="absolute inset-0">
-      <div className="h-full relative flex items-stretch justify-center text-white">
-        <div
-          className={`absolute top-0 left-0 grid gap-1 p-2 z-[2] opacity-100 transition-opacity ${
-            isDrawing ? "opacity-0 pointer-events-none" : ""
-          }`}
-        >
-          <Close />
-          <Separator.Root
-            orientation="horizontal"
-            className="w-full h-[1px] my-1 bg-transparent"
-          />
-          <Muted />
-          <Flip />
-          <FullScreen />
+    <ErrorBoundary>
+      <div className="absolute inset-0">
+        <div className="h-full relative flex items-stretch justify-center text-white">
+          <div
+            className={`absolute top-0 left-0 grid gap-1 p-2 z-[2] opacity-100 transition-opacity ${
+              isDrawing ? "opacity-0 pointer-events-none" : ""
+            }`}
+          >
+            <Close />
+            <Separator.Root
+              orientation="horizontal"
+              className="w-full h-[1px] my-1 bg-transparent"
+            />
+            <Muted />
+            <Flip />
+            <FullScreen />
+          </div>
+          <div
+            className={`absolute top-0 right-0 grid gap-1 p-2 z-[2]  opacity-100 transition-opacity ${
+              isDrawing ? "opacity-0 pointer-events-none" : ""
+            }`}
+          >
+            <DrawType />
+            <DrawColor />
+            <Undo />
+            <Erase />
+          </div>
+          <Video />
+          <div
+            className={`absolute bottom-0 left-0 right-0  p-2 flex items-center gap-1 z-[2] opacity-100 transition-opacity  ${
+              isDrawing ? "opacity-0 pointer-events-none" : ""
+            }`}
+          >
+            <PlayPause />
+            <Progress />
+            <Skip />
+            <Speed />
+          </div>
         </div>
-        <div
-          className={`absolute top-0 right-0 grid gap-1 p-2 z-[2]  opacity-100 transition-opacity ${
-            isDrawing ? "opacity-0 pointer-events-none" : ""
-          }`}
-        >
-          <DrawType />
-          <DrawColor />
-          <Undo />
-          <Erase />
-        </div>
-        <Video />
-        <div
-          className={`absolute bottom-0 left-0 right-0  p-2 flex items-center gap-1 z-[2] opacity-100 transition-opacity  ${
-            isDrawing ? "opacity-0 pointer-events-none" : ""
-          }`}
-        >
-          <PlayPause />
-          <Progress />
-          <Skip />
-          <Speed />
-        </div>
+        <Suspense>
+          <Canvas />
+        </Suspense>
       </div>
-      <Suspense>
-        <Canvas />
-      </Suspense>
-    </div>
+    </ErrorBoundary>
   );
 };
 

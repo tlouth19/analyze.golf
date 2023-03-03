@@ -1,3 +1,8 @@
+import { useState } from "react";
+import { createPortal } from "react-dom";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
+import FocusLock from "react-focus-lock";
+
 import useAppSelector from "@hooks/useAppSelector";
 import useAppDispatch from "@hooks/useAppDispatch";
 import {
@@ -6,10 +11,12 @@ import {
   setCurrentTime,
   setSpeed,
   setMuted,
+  reset,
 } from "@redux/slices/video";
 
 const Video = () => {
   const { blob, isFlipped } = useAppSelector((state) => state.video);
+  const [playbackError, setPlaybackError] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
   const onPlay = () => {
@@ -41,6 +48,37 @@ const Video = () => {
     dispatch(setMuted(currentTarget.muted));
   };
 
+  const handleReset = () => {
+    dispatch(reset());
+  };
+
+  const onError = () => {
+    setPlaybackError(true);
+  };
+
+  if (playbackError) {
+    return createPortal(
+      <FocusLock>
+        <div className="fixed inset-0 flex items-center justify-center z-[100000] bg-white dark:bg-black bg-opacity-90">
+          <div className="text-center">
+            <BsFillExclamationCircleFill className="text-4xl mb-2 mx-auto" />
+            <h2 className="text-lg uppercase font-bold mb-4">
+              A Playback Error Occurred
+            </h2>
+            <button
+              type="button"
+              className="uppercase text-brand-blue font-semibold"
+              onClick={handleReset}
+            >
+              Return Home
+            </button>
+          </div>
+        </div>
+      </FocusLock>,
+      document.body
+    );
+  }
+
   return (
     <video
       src={blob}
@@ -60,6 +98,7 @@ const Video = () => {
       onTimeUpdate={onTimeUpdate}
       onRateChange={onRateChange}
       onVolumeChange={onVolumeChange}
+      onError={onError}
     />
   );
 };

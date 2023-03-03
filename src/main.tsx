@@ -5,13 +5,16 @@ import { Provider } from "react-redux";
 import store from "@redux/store";
 import App from "@components/App";
 import ProgressiveWebApp from "@components/ProgressiveWebApp";
+import ErrorBoundary from "@components/errorBoundary/ErrorBoundary";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
-      <ProgressiveWebApp />
+      <ErrorBoundary>
+        <App />
+        <ProgressiveWebApp />
+      </ErrorBoundary>
     </Provider>
   </React.StrictMode>
 );
