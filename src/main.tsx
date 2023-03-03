@@ -4,8 +4,10 @@ import { Provider } from "react-redux";
 
 import store from "@redux/store";
 import App from "@components/App";
-import ProgressiveWebApp from "@components/ProgressiveWebApp";
+import ServiceWorker from "@components/ServiceWorker";
+import OfflineManager from "@components/OfflineManager";
 import ErrorBoundary from "@components/ErrorBoundary";
+
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -13,7 +15,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <Provider store={store}>
       <ErrorBoundary>
         <App />
-        <ProgressiveWebApp />
+        <ServiceWorker />
+        <OfflineManager />
       </ErrorBoundary>
     </Provider>
   </React.StrictMode>

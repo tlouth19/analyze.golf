@@ -41,7 +41,6 @@ class ErrorBoundary extends Component<ComponentProps, State> {
       return createPortal(
         <FocusLock>
           <div className="fixed inset-0 flex items-center justify-center z-[100000] bg-white dark:bg-black">
-            {" "}
             <div className="text-center">
               <BsFillExclamationCircleFill className="text-4xl mb-2 mx-auto" />
               <h2 className="text-lg uppercase font-bold mb-4">
