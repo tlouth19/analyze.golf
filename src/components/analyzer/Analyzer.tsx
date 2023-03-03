@@ -1,7 +1,7 @@
-import { lazy, Suspense } from "react";
 import * as Separator from "@radix-ui/react-separator";
 
 import useAppSelector from "@hooks/useAppSelector";
+import Canvas from "./draw/Canvas";
 import Video from "./video/Video";
 import PlayPause from "./actions/PlayPause";
 import Progress from "./actions/Progress";
@@ -15,9 +15,6 @@ import DrawType from "./actions/DrawType";
 import DrawColor from "./actions/DrawColor";
 import Erase from "./actions/Erase";
 import Undo from "./actions/Undo";
-
-// eslint-disable-next-line @typescript-eslint/promise-function-async
-const Canvas = lazy(() => import("./draw/Canvas"));
 
 const Analyzer = () => {
   const { isDrawing } = useAppSelector((state) => state.draw);
@@ -60,9 +57,7 @@ const Analyzer = () => {
           <Speed />
         </div>
       </div>
-      <Suspense>
-        <Canvas />
-      </Suspense>
+      <Canvas />
     </div>
   );
 };
