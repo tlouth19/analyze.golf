@@ -22,7 +22,7 @@ const Analyzer = () => {
     <div className="absolute inset-0">
       <div className="h-full relative flex items-stretch justify-center text-white">
         <div
-          className={`absolute top-0 left-0 grid gap-1 p-2 z-[2] opacity-100 transition-opacity ${
+          className={`absolute top-0 left-0 grid gap-1 p-4 z-[2] opacity-100 transition-opacity ${
             isDrawing ? "opacity-0 pointer-events-none" : ""
           }`}
         >
@@ -36,7 +36,7 @@ const Analyzer = () => {
           <FullScreen />
         </div>
         <div
-          className={`absolute top-0 right-0 grid gap-1 p-2 z-[2]  opacity-100 transition-opacity ${
+          className={`absolute top-0 right-0 grid gap-1 p-4 z-[2]  opacity-100 transition-opacity ${
             isDrawing ? "opacity-0 pointer-events-none" : ""
           }`}
         >
@@ -47,7 +47,7 @@ const Analyzer = () => {
         </div>
         <Video />
         <div
-          className={`absolute bottom-0 left-0 right-0  p-2 flex items-center gap-1 z-[2] opacity-100 transition-opacity  ${
+          className={`absolute bottom-0 left-0 right-0  p-4 flex items-center gap-1 z-[2] opacity-100 transition-opacity  ${
             isDrawing ? "opacity-0 pointer-events-none" : ""
           }`}
         >
