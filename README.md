@@ -14,7 +14,7 @@ There are lots of swing analyzer apps available for IOS and Android, but none on
 - 📶 Offline support
 - 🔄 Flip swing video
 - 🖌 Draw swing lines
-- 🏎 Blazing fast (~100kb JS, ~3kb CSS)
+- 🏎 Fast (~100kb JS, ~3kb CSS)
 - 💻 Fully client side, no video upload or server integration
 
 ## Roadmap
