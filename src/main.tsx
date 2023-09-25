@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
+import { Analytics } from "@vercel/analytics/react";
 
 import store from "@redux/store";
 import App from "@components/App";
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         <App />
         <ServiceWorker />
         <OfflineManager />
+        <Analytics />
       </ErrorBoundary>
     </Provider>
   </React.StrictMode>
