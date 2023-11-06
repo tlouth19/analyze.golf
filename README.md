@@ -23,6 +23,7 @@ There are lots of swing analyzer apps available for IOS and Android, but none on
 - [x] Update to Vite
 - [x] PWA
 - [x] Offline support
+- [ ] Remove Redux
 - [ ] Trim video
 - [ ] Pan/zoom video
 - [ ] Testing with Vitest
