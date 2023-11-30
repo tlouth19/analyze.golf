@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as Popover from "@radix-ui/react-popover";
+import { track } from "@vercel/analytics";
 
 import { DrawColorEnum } from "@enums";
 import useAppSelector from "@hooks/useAppSelector";
@@ -26,6 +27,7 @@ const DrawColor = () => {
 
   const handleChange = (newDrawColor: DrawColorEnum) => {
     dispatch(setDrawColor(newDrawColor));
+    track("Change draw color", { newDrawColor });
   };
 
   return (

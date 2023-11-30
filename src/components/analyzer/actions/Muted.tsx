@@ -1,5 +1,6 @@
 import { BsFillVolumeMuteFill, BsFillVolumeDownFill } from "react-icons/bs";
 import { getPlayer } from "@helpers";
+import { track } from "@vercel/analytics";
 
 import useAppSelector from "@hooks/useAppSelector";
 
@@ -11,10 +12,12 @@ const Muted = () => {
 
   const handleMute = () => {
     getPlayer().muted = true;
+    track("Mute video");
   };
 
   const handleVolume = () => {
     getPlayer().muted = false;
+    track("Unmute video");
   };
 
   if (isMuted) {

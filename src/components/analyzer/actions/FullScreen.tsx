@@ -1,5 +1,6 @@
 import { BsFullscreen, BsFullscreenExit } from "react-icons/bs";
 import { useFullscreen } from "rooks";
+import { track } from "@vercel/analytics";
 
 const enterLabel = "Enter full screen mode";
 const exitLabel = "Exit full screen mode";
@@ -10,6 +11,7 @@ const FullScreen = () => {
 
   const handleToggle = () => {
     void toggleFullscreen();
+    track("Toggle full screen");
   };
 
   if (!isFullscreenAvailable) {
