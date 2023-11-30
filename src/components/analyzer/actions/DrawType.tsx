@@ -2,6 +2,7 @@ import { useState } from "react";
 import { TbWaveSine } from "react-icons/tb";
 import { BsSlashLg, BsCircle } from "react-icons/bs";
 import * as Popover from "@radix-ui/react-popover";
+import { track } from "@vercel/analytics";
 
 import { DrawTypeEnum } from "@enums";
 import useAppSelector from "@hooks/useAppSelector";
@@ -25,6 +26,7 @@ const DrawType = () => {
 
   const handleChange = (newDrawType: DrawTypeEnum) => {
     dispatch(setDrawType(newDrawType));
+    track("Change draw type", { newDrawType });
   };
 
   return (

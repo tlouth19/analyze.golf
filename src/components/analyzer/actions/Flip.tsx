@@ -1,4 +1,5 @@
 import { BsArrowLeftRight } from "react-icons/bs";
+import { track } from "@vercel/analytics";
 
 import useAppSelector from "@hooks/useAppSelector";
 import useAppDispatch from "@hooks/useAppDispatch";
@@ -12,6 +13,7 @@ const Flip = () => {
 
   const handleFlip = () => {
     dispatch(setFlipped(!isFlipped));
+    track("Flip video");
   };
 
   return (

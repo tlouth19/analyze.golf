@@ -1,4 +1,5 @@
 import { BsEraser } from "react-icons/bs";
+import { track } from "@vercel/analytics";
 
 import useAppSelector from "@hooks/useAppSelector";
 import useAppDispatch from "@hooks/useAppDispatch";
@@ -10,6 +11,7 @@ const Erase = () => {
 
   const handleErase = () => {
     dispatch(eraseShapes());
+    track("Erase all shapes");
   };
 
   if (shapes.length === 0) {
