@@ -9,12 +9,10 @@ import Shapes from "./Shapes";
 const Canvas = () => {
   const { innerHeight, innerWidth } = useWindowSize();
   const canvasEvents = useCanvasEvents();
-  const initialCanvasWidthRef = useRef<number>(
-    innerWidth !== null ? innerWidth : 0
-  );
+  const initialCanvasWidthRef = useRef<number>(innerWidth ?? 0);
 
-  const width = innerWidth !== null ? innerWidth : 0;
-  const height = innerHeight !== null ? innerHeight : 0;
+  const width = innerWidth ?? 0;
+  const height = innerHeight ?? 0;
 
   const scale = width / initialCanvasWidthRef.current;
 
