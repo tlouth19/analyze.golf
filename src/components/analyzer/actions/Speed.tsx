@@ -15,8 +15,8 @@ const Speed = () => {
   };
 
   const handleChangePlaybackRate = (speed: number) => {
-    track("Change playback rate", { speed });
     getPlayer().playbackRate = speed;
+    track("Change playback rate", { speed });
   };
 
   return (

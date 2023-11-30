@@ -11,13 +11,13 @@ const Muted = () => {
   const { isMuted } = useAppSelector((state) => state.video);
 
   const handleMute = () => {
-    track("Mute video");
     getPlayer().muted = true;
+    track("Mute video");
   };
 
   const handleVolume = () => {
-    track("Unmute video");
     getPlayer().muted = false;
+    track("Unmute video");
   };
 
   if (isMuted) {
