@@ -1,4 +1,4 @@
-import { BsGithub, BsTwitter } from "react-icons/bs";
+import { BsGithub, BsTwitterX } from "react-icons/bs";
 
 import FilePicker from "./FilePicker";
 
@@ -36,7 +36,7 @@ const SelectFile = () => {
             aria-label="Visit Analyze.Golf on Twitter"
             className="text-xl hover:bg-brand-blue border border-transparent hover:border-current focus:border-current focus:bg-brand-blue bg-opacity-40 rounded-full p-1 transition-all"
           >
-            <BsTwitter />
+            <BsTwitterX />
           </a>
         </div>
       </header>
