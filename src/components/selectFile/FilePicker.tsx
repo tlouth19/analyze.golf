@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { track } from "@vercel/analytics";
 
 import useAppDispatch from "@hooks/useAppDispatch";
 import { setBlob } from "@redux/slices/video";
@@ -16,6 +17,7 @@ const FilePicker = () => {
 
   const handleSelectFile = (e: React.SyntheticEvent) => {
     setIsCreatingBlob(true);
+    track("Select file");
 
     try {
       const target = e.target as HTMLInputElement;
